@@ -1,13 +1,13 @@
 const { Activity } = require('../../db')
 
-const postActivity = ({ name, difficulty, duration, season }) => {
+const postActivity = async ({ name, difficulty, duration, season }) => {
   const post = {
     name,
     difficulty,
     duration,
     season
   }
-  const newActivity = Activity.create(post)
+  const newActivity = await Activity.create(post)
 
   return newActivity
 }

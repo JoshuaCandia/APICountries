@@ -24,6 +24,7 @@ fs.readdirSync(path.join(__dirname, '/models'))
     file =>
       file.indexOf('.') !== 0 && file !== basename && file.slice(-3) === '.js'
   )
+
   .forEach(file => {
     modelDefiners.push(require(path.join(__dirname, '/models', file)))
   })
@@ -47,6 +48,6 @@ Country.belongsToMany(Activity, { through: 'CountryActivity' })
 Activity.belongsToMany(Country, { through: 'CountryActivity' })
 
 module.exports = {
-  ...sequelize.models, // para poder importar los modelos así: const { Product, User } = require('./db.js');
+  ...sequelize.models, // para poder importar los modelos así: const { Country, Activity } = require('./db.js');
   conn: sequelize // para importart la conexión { conn } = require('./db.js');
 }

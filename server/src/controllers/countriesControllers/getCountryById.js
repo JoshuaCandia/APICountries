@@ -1,4 +1,4 @@
-const { Country, Activity } = require('../../db')
+const { Country } = require('../../db')
 
 const getCountryById = async (req, res) => {
   try {

@@ -1,4 +1,5 @@
 const postActivities = require('../controllers/activitiesControllers/postActivities')
+const getActivity = require('../controllers/activitiesControllers/getActivity')
 
 const postActivity = async (req, res) => {
   try {
@@ -12,7 +13,7 @@ const postActivity = async (req, res) => {
       season
     })
 
-    res.status(200).send('La actividad se creo exitosamente')
+    res.status(201).json(createActivities)
   } catch (error) {
     res.status(400).json({ error: error.message })
   }
@@ -20,7 +21,7 @@ const postActivity = async (req, res) => {
 
 const getActivities = async (req, res) => {
   try {
-    const getAct = await postActivity()
+    const getAct = await getActivity()
     res.status(200).json(getAct)
   } catch (error) {
     res.status(400).json({ error: error.message })
