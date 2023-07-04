@@ -18,11 +18,7 @@ const getAllCountries = async (req, res) => {
     }))
 
     await Country.bulkCreate(mappedCountries)
-
-    res.status(200).send('Countries creados en base de datos')
-  } catch (error) {
-    res.status(500).json(error.message)
-  }
+  } catch (error) {}
 }
 
 module.exports = getAllCountries
