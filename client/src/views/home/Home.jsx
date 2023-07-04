@@ -1,9 +1,13 @@
+import Cards from '../../components/cards/Cards'
+import SearchBar from '../../components/searchBar/SearchBar'
 import style from './home.module.css'
 
 const Home = () => {
 	return (
 		<div className={style.home}>
-			<h1>Home</h1>
+			<SearchBar />
+			<h1>Countries</h1>
+			<Cards />
 		</div>
 	)
 }

@@ -1,0 +1,9 @@
+.home {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	height: 95vh;
+	width: 95vw;
+	background-image: url('../../assets/countries.png');
+	background-size: cover;
+}
