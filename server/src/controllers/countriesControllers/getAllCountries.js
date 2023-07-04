@@ -1,10 +1,12 @@
-const generalCountries = require('../../api/db.json')
-
+const axios = require('axios')
 const { Country } = require('../../db')
 
-const postCountries = async (req, res) => {
+const URL = 'http://localhost:5000/countries'
+
+const getAllCountries = async (req, res) => {
   try {
-    const mappedCountries = generalCountries.countries.map(country => ({
+    const { data } = await axios.get(URL)
+    const mappedCountries = data.map(country => ({
       id: country.cca3,
       name: country.name.common,
       flag: country.flags.svg,
@@ -23,4 +25,4 @@ const postCountries = async (req, res) => {
   }
 }
 
-module.exports = postCountries
+module.exports = getAllCountries
