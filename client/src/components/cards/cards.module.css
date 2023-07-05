@@ -1,5 +1,18 @@
+.gridCards {
+	width: 90%;
+	border-radius: 6px;
+	margin-top: 3%;
+	background-color: #ebebeb;
+	box-shadow: 0 2px 15px rgba(0, 0, 0, 0.08);
+}
+
 .cards {
 	display: grid;
+	justify-content: center;
+	align-items: center;
 	grid-template-columns: repeat(4, 1fr);
 	gap: 2rem;
+
+	place-content: center;
+	padding: 4% 0 4% 5%;
 }

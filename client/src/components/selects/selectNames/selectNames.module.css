@@ -1,0 +1,30 @@
+.selectNames {
+	position: relative;
+	font-family: Arial, sans-serif;
+}
+
+.selectNames select {
+	width: 200px;
+
+	padding: 10px;
+
+	font-size: 16px;
+	text-align: center;
+
+	border: none;
+	border-radius: 4px;
+
+	background-color: #f2f2f2;
+	color: #333;
+	appearance: none;
+}
+
+.selectNames select:focus {
+	outline: none;
+	box-shadow: 0 0 4px rgba(0, 0, 0, 0.2);
+}
+
+.selectNames select option {
+	color: #000;
+	background-color: #fff;
+}

@@ -18,7 +18,9 @@ const getAllCountries = async (req, res) => {
     }))
 
     await Country.bulkCreate(mappedCountries)
-  } catch (error) {}
+  } catch (error) {
+    console.error(error)
+  }
 }
 
 module.exports = getAllCountries

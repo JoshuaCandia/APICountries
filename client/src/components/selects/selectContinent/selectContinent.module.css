@@ -1,0 +1,30 @@
+.selectContinent {
+	position: relative;
+	font-family: Arial, sans-serif;
+}
+
+.selectContinent select {
+	width: 200px;
+
+	padding: 10px;
+
+	font-size: 16px;
+	text-align: center;
+
+	border: none;
+	border-radius: 4px;
+
+	background-color: #f2f2f2;
+	color: #333;
+	appearance: none;
+}
+
+.selectContinent select:focus {
+	outline: none;
+	box-shadow: 0 0 4px rgba(0, 0, 0, 0.2);
+}
+
+.selectContinent select option {
+	color: #000;
+	background-color: #fff;
+}

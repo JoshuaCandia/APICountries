@@ -1,12 +1,15 @@
-import Cards from '../../components/cards/Cards'
-import SearchBar from '../../components/searchBar/SearchBar'
 import style from './home.module.css'
+
+import Cards from '../../components/cards/Cards'
+import Nav from '../../components/nav/Nav'
 
 const Home = () => {
 	return (
 		<div className={style.home}>
-			<SearchBar />
-			<h1>Countries</h1>
+			<div className={style.title}>
+				<h1>React Countries</h1>
+			</div>
+			<Nav />
 			<Cards />
 		</div>
 	)
