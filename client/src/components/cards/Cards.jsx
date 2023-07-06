@@ -12,18 +12,22 @@ import Pagination from '../pagination/Pagination'
 
 const Cards = () => {
 	const dispatch = useDispatch()
-	const allCountries = useSelector(state => state.countries)
+
+	// State global countries
+	const countries = useSelector(state => state.countries)
 
 	const [currentPage, setCurrentPage] = useState(1)
+
 	// eslint-disable-next-line no-unused-vars
 	const [countriesPerPage, setCountriesPerPage] = useState(10)
 	const indexOfLastCountry = currentPage * countriesPerPage
 	const indexOfFirstCountry = indexOfLastCountry - countriesPerPage
-	const currentCountries = allCountries.slice(
+	const currentCountries = countries.slice(
 		indexOfFirstCountry,
 		indexOfLastCountry
 	)
 
+	// Funcion de paginación
 	const paginate = pageNumber => {
 		setCurrentPage(pageNumber)
 	}
@@ -50,7 +54,7 @@ const Cards = () => {
 			</div>
 
 			<Pagination
-				allCountries={allCountries}
+				countries={countries}
 				countriesPerPage={countriesPerPage}
 				paginate={paginate}
 			/>

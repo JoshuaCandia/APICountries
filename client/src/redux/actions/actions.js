@@ -1,4 +1,7 @@
-import { GET_COUNTRIES } from '../action-types/action-types'
+import {
+	GET_COUNTRIES,
+	FILTER_COUNTRIES_BY_CONTINENT,
+} from '../action-types/action-types'
 import axios from 'axios'
 
 const getCountries = () => {
@@ -11,4 +14,12 @@ const getCountries = () => {
 	}
 }
 
-export { getCountries }
+const filterCountriesByContinent = payload => {
+	return dispatch => {
+		dispatch({
+			type: FILTER_COUNTRIES_BY_CONTINENT,
+			payload,
+		})
+	}
+}
+export { getCountries, filterCountriesByContinent }

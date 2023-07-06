@@ -1,10 +1,14 @@
-import { GET_COUNTRIES, SET_CURRENT_PAGE } from '../action-types/action-types'
+/* eslint-disable no-case-declarations */
+import {
+	FILTER_COUNTRIES_BY_CONTINENT,
+	GET_COUNTRIES,
+	SET_CURRENT_PAGE,
+} from '../action-types/action-types'
 
 const initialState = {
 	countries: [],
+	countriesCopy: [],
 	activities: [],
-	currentPage: 1,
-	countriesPerPage: 10,
 }
 
 const reducer = (state = initialState, { type, payload }) => {
@@ -13,6 +17,18 @@ const reducer = (state = initialState, { type, payload }) => {
 			return {
 				...state,
 				countries: payload,
+				countriesCopy: payload,
+			}
+		case FILTER_COUNTRIES_BY_CONTINENT:
+			const countriesCopy = state.countriesCopy
+			const statusFiltered =
+				payload === 'Todos'
+					? countriesCopy
+					: countriesCopy.filter(country => country.continent === payload)
+
+			return {
+				...state,
+				countries: statusFiltered,
 			}
 		case SET_CURRENT_PAGE:
 			return {

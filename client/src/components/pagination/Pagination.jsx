@@ -1,11 +1,10 @@
 import style from './pagination.module.css'
 import { Link } from 'react-router-dom'
-const Pagination = ({ countriesPerPage, allCountries, paginate }) => {
-	const pageNumbers = []
-	console.log(allCountries)
-	console.log(countriesPerPage)
 
-	for (let i = 1; i <= Math.ceil(allCountries.length / countriesPerPage); i++) {
+const Pagination = ({ countriesPerPage, countries, paginate }) => {
+	const pageNumbers = []
+
+	for (let i = 1; i <= Math.ceil(countries.length / countriesPerPage); i++) {
 		pageNumbers.push(i)
 	}
 	return (

@@ -23,7 +23,7 @@ const SearchBar = () => {
 					setName('')
 				}}
 			/>
-			<ButtonSearch />
+			<ButtonSearch setName={setName} />
 		</div>
 	)
 }
