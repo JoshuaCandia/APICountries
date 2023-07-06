@@ -1,6 +1,9 @@
 import {
 	GET_COUNTRIES,
 	FILTER_COUNTRIES_BY_CONTINENT,
+	FILTER_ACTIVITIES,
+	FILTER_COUNTRIES_BY_NAME,
+	SET_ORDER,
 } from '../action-types/action-types'
 import axios from 'axios'
 
@@ -22,4 +25,37 @@ const filterCountriesByContinent = payload => {
 		})
 	}
 }
-export { getCountries, filterCountriesByContinent }
+
+const filterActivities = payload => {
+	return dispatch => {
+		dispatch({
+			type: FILTER_ACTIVITIES,
+			payload,
+		})
+	}
+}
+
+const filterCountriesByName = payload => {
+	return dispatch => {
+		dispatch({
+			type: FILTER_COUNTRIES_BY_NAME,
+			payload,
+		})
+	}
+}
+const setOrder = order => {
+	return dispatch => {
+		dispatch({
+			type: SET_ORDER,
+			payload: order,
+		})
+	}
+}
+
+export {
+	getCountries,
+	filterCountriesByContinent,
+	filterActivities,
+	filterCountriesByName,
+	setOrder,
+}

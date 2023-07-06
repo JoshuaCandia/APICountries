@@ -1,14 +1,34 @@
 import style from './selectNames.module.css'
 
-const SelectNames = () => {
+import { useDispatch } from 'react-redux'
+import { filterCountriesByName, setOrder } from '../../../redux/actions/actions'
+
+const SelectNames = ({ setCurrentPage }) => {
+	const dispatch = useDispatch()
+
+	// eslint-disable-next-line no-unused-vars
+
+	const handleFilterName = event => {
+		const { value } = event.target
+
+		dispatch(filterCountriesByName(value))
+		setCurrentPage(1)
+		dispatch(setOrder(`Ordenado ${value}`))
+	}
+
 	return (
 		<div className={style.selectNames}>
-			<select name='nombres' id='selectNombres' defaultValue='default'>
+			<select
+				onChange={event => handleFilterName(event)}
+				name='nombres'
+				id='selectNombres'
+				defaultValue='default'
+			>
 				<option value='default' disabled>
 					Nombre
 				</option>
-				<option value='ASC'>A-Z</option>
-				<option value='DESC'>Z-A</option>
+				<option value='asc'>A-Z</option>
+				<option value='desc'>Z-A</option>
 			</select>
 		</div>
 	)

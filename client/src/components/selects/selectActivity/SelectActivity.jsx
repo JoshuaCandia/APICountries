@@ -7,8 +7,8 @@ const SelectActivity = () => {
 				<option value='default' disabled>
 					Actividad
 				</option>
-				<option value='true'>Actividad</option>
-				<option value='false'>No Actividad</option>
+				<option value='All'>Todas</option>
+				<option value='Crated'>Creadas</option>
 			</select>
 		</div>
 	)

@@ -3,7 +3,7 @@ import style from './cards.module.css'
 import { getCountries } from '../../redux/actions/actions'
 
 import Card from '../card/Card'
-import Nav from '../nav/Nav'
+import NavCards from '../navCards/NavCards'
 
 // Import Hooks
 import { useEffect, useState } from 'react'
@@ -13,6 +13,8 @@ import Pagination from '../pagination/Pagination'
 const Cards = () => {
 	const dispatch = useDispatch()
 
+	// State global order
+	useSelector(state => state.order)
 	// State global countries
 	const countries = useSelector(state => state.countries)
 
@@ -39,7 +41,7 @@ const Cards = () => {
 	return (
 		<div className={style.gridCards}>
 			<div className={style.navDiv}>
-				<Nav />
+				<NavCards setCurrentPage={setCurrentPage} />
 			</div>
 
 			<div className={style.cards}>

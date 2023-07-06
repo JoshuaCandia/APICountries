@@ -1,25 +1,21 @@
 import style from './nav.module.css'
 
-// import Selects
-import SelectActivity from '../selects/selectActivity/SelectActivity'
-import SelectNames from '../selects/selectNames/SelectNames'
-import SelectContinent from '../selects/selectContinent/SelectContinent'
-import ButtonRestore from '../buttons/buttonNav/ButtonRestore'
-import SearchBar from '../searchBar/SearchBar'
+// Import components
+import ButtonCreate from '../../components/buttons/buttonCreate/ButtonCreate'
+import Title from '../Title/Title'
+
+// Import hooks
+import { Link } from 'react-router-dom'
 
 const Nav = () => {
 	return (
 		<div className={style.nav}>
-			<SearchBar />
-
-			<ButtonRestore />
-
-			<div className={style.selectors}>
-				<SelectContinent />
-				<SelectNames />
-				<SelectActivity />
-			</div>
+			<Link to='/home'>
+				<Title />
+			</Link>
+			<ButtonCreate />
 		</div>
 	)
 }
+
 export default Nav
