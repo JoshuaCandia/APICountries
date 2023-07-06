@@ -3,7 +3,7 @@ import style from './buttonRestore.module.css'
 const ButtonRestore = () => {
 	return (
 		<div className={style.buttonRestore}>
-			<button>Restaurar todos los Paises</button>
+			<button>Restaurar </button>
 		</div>
 	)
 }

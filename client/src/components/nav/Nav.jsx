@@ -7,7 +7,7 @@ import SelectActivity from '../selects/selectActivity/SelectActivity'
 import SelectNames from '../selects/selectNames/SelectNames'
 import SelectContinent from '../selects/selectContinent/SelectContinent'
 import ButtonRestore from '../buttons/buttonNav/ButtonRestore'
-
+import SearchBar from '../searchBar/SearchBar'
 const Nav = () => {
 	const dispatch = useDispatch()
 
@@ -18,6 +18,8 @@ const Nav = () => {
 
 	return (
 		<div className={style.nav}>
+			<SearchBar />
+
 			<div className={style.button}>
 				<ButtonRestore onClick={event => handleClick(event)} />
 			</div>

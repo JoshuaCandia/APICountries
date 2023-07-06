@@ -5,10 +5,10 @@ const SelectNames = () => {
 		<div className={style.selectNames}>
 			<select name='nombres' id='selectNombres' defaultValue='default'>
 				<option value='default' disabled>
-					Filtra por nombre
+					Nombre
 				</option>
-				<option value='ASC'>Ascendente</option>
-				<option value='DESC'>Descendente</option>
+				<option value='ASC'>A-Z</option>
+				<option value='DESC'>Z-A</option>
 			</select>
 		</div>
 	)

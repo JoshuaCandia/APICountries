@@ -7,3 +7,7 @@
 	background-image: url('../../assets/countries.png');
 	background-size: cover;
 }
+
+.buttonDiv {
+	width: 100px;
+}

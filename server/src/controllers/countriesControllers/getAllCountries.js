@@ -3,7 +3,7 @@ const { Country } = require('../../db')
 
 const URL = 'http://localhost:5000/countries'
 
-const getAllCountries = async (req, res) => {
+const getAllCountries = async () => {
   try {
     const { data } = await axios.get(URL)
     const mappedCountries = data.map(country => ({

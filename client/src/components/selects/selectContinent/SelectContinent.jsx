@@ -5,7 +5,7 @@ const SelectContinent = () => {
 		<div className={style.selectContinent}>
 			<select name='continent' id='selectContinent' defaultValue='default'>
 				<option value='default' disabled>
-					Filtra por continente
+					Continente
 				</option>
 				<option value='America'>América</option>
 				<option value='Africa'>África</option>

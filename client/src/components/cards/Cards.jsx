@@ -2,16 +2,31 @@ import style from './cards.module.css'
 
 import { getCountries } from '../../redux/actions/actions'
 
-import SearchBar from '../../components/searchBar/SearchBar'
 import Card from '../card/Card'
+import Nav from '../nav/Nav'
 
 // Import Hooks
-import { useEffect } from 'react'
+import { useEffect, useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
+import Pagination from '../pagination/Pagination'
 
 const Cards = () => {
 	const dispatch = useDispatch()
 	const allCountries = useSelector(state => state.countries)
+
+	const [currentPage, setCurrentPage] = useState(1)
+	// eslint-disable-next-line no-unused-vars
+	const [countriesPerPage, setCountriesPerPage] = useState(10)
+	const indexOfLastCountry = currentPage * countriesPerPage
+	const indexOfFirstCountry = indexOfLastCountry - countriesPerPage
+	const currentCountries = allCountries.slice(
+		indexOfFirstCountry,
+		indexOfLastCountry
+	)
+
+	const paginate = pageNumber => {
+		setCurrentPage(pageNumber)
+	}
 
 	useEffect(() => {
 		dispatch(getCountries())
@@ -19,10 +34,12 @@ const Cards = () => {
 
 	return (
 		<div className={style.gridCards}>
-			<SearchBar />
+			<div className={style.navDiv}>
+				<Nav />
+			</div>
 
 			<div className={style.cards}>
-				{allCountries.map(country => (
+				{currentCountries?.map(country => (
 					<Card
 						key={country.id}
 						flag={country.flag}
@@ -31,22 +48,14 @@ const Cards = () => {
 					/>
 				))}
 			</div>
+
+			<Pagination
+				allCountries={allCountries}
+				countriesPerPage={countriesPerPage}
+				paginate={paginate}
+			/>
 		</div>
 	)
 }
 
 export default Cards
-
-/*	const [countries, setCountries] = useState([])
-
-	useEffect(() => {
-		const fetchCountries = async () => {
-			try {
-				const { data } = await axios.get('http://localhost:3001/countries')
-				setCountries(data)
-			} catch (error) {
-				console.error('Error fetching countries:', error)
-			}
-		}
-		fetchCountries()
-	}, []) */

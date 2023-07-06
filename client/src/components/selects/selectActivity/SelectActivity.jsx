@@ -5,7 +5,7 @@ const SelectActivity = () => {
 		<div className={style.selectActivity}>
 			<select name='actividad' id='selectActividad' defaultValue='default'>
 				<option value='default' disabled>
-					Filtra por actividad
+					Actividad
 				</option>
 				<option value='true'>Actividad</option>
 				<option value='false'>No Actividad</option>

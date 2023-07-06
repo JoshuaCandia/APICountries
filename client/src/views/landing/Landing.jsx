@@ -3,9 +3,11 @@ import { Link } from 'react-router-dom'
 const Landing = () => {
 	return (
 		<div className={style.home}>
-			<button className={style.buttonLanding}>
-				<Link to='/home'>Home</Link>
-			</button>
+			<div className={style.buttonDiv}>
+				<button className={style.buttonLanding}>
+					<Link to='/home'>Home</Link>
+				</button>
+			</div>
 		</div>
 	)
 }
