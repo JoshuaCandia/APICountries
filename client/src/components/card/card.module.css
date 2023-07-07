@@ -1,13 +1,13 @@
 .card {
-	width: 280px;
-
+	width: 300px;
+	height: 300px;
 	color: hsl(200, 15%, 8%);
 	background: hsl(0, 0%, 100%);
 	border-radius: 6px;
 
 	box-shadow: 0 2px 15px rgba(0, 0, 0, 0.08);
 
-	transition: transform 0.3s linear, box-shadow 0 2px 15px rgba(0, 0, 0, 0.08);
+	transition: transform 0.3s ease-in-out;
 	&:hover {
 		transform: scale(1.04);
 		box-shadow: 0 4px 20px rgba(0, 0, 0, 0.11);
@@ -29,6 +29,10 @@
 }
 
 .infoDiv {
-	position: relative;
-	padding: 30px 25px;
+}
+
+.countryTitle {
+	width: 100%;
+
+	margin: 0;
 }

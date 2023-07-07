@@ -21,7 +21,7 @@ const Cards = () => {
 	const [currentPage, setCurrentPage] = useState(1)
 
 	// eslint-disable-next-line no-unused-vars
-	const [countriesPerPage, setCountriesPerPage] = useState(10)
+	const [countriesPerPage, setCountriesPerPage] = useState(8)
 	const indexOfLastCountry = currentPage * countriesPerPage
 	const indexOfFirstCountry = indexOfLastCountry - countriesPerPage
 	const currentCountries = countries.slice(
@@ -48,6 +48,7 @@ const Cards = () => {
 				{currentCountries?.map(country => (
 					<Card
 						key={country.id}
+						id={country.id}
 						flag={country.flag}
 						name={country.name}
 						continent={country.continent}

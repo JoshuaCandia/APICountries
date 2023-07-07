@@ -1,0 +1,30 @@
+.buttonRestore {
+	width: 120px;
+}
+.button {
+	width: 100px;
+
+	padding: 10px;
+
+	font-size: 16px;
+	text-align: center;
+
+	border: none;
+	border-radius: 4px;
+
+	background-color: #fff;
+	color: #333;
+	appearance: none;
+}
+.button {
+	transition: transform 0.3s ease-in-out;
+}
+
+.button:hover {
+	transform: scale(1.1);
+	outline: none;
+}
+
+.button:focus {
+	outline: none;
+}

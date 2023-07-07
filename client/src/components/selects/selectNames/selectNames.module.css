@@ -27,4 +27,6 @@
 .selectNames select option {
 	color: #000;
 	background-color: #fff;
+
+	text-align: start;
 }

@@ -4,7 +4,7 @@ import style from './navCards.module.css'
 import SelectActivity from '../selects/selectActivity/SelectActivity'
 import SelectNames from '../selects/selectNames/SelectNames'
 import SelectContinent from '../selects/selectContinent/SelectContinent'
-import ButtonRestore from '../buttons/buttonNav/ButtonRestore'
+import ButtonRestore from '../buttons/buttonRestore/ButtonRestore'
 import SearchBar from '../searchBar/SearchBar'
 
 const NavCards = ({ setCurrentPage, handleFilterName }) => {
@@ -12,12 +12,11 @@ const NavCards = ({ setCurrentPage, handleFilterName }) => {
 		<div className={style.nav}>
 			<SearchBar />
 
-			<ButtonRestore />
-
 			<div className={style.selectors}>
 				<SelectContinent />
 				<SelectNames setCurrentPage={setCurrentPage} />
 				<SelectActivity />
+				<ButtonRestore />
 			</div>
 		</div>
 	)
