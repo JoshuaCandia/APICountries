@@ -1,14 +1,15 @@
 const { Country } = require('../../db')
 
-const getCountryById = async (req, res) => {
+const getCountryByIdController = async idCountry => {
   try {
-    const { idCountry } = req.params
-
     const countryFound = await Country.findOne({ where: { id: idCountry } })
-    res.status(200).json(countryFound)
+
+    return countryFound
   } catch (error) {
-    res.status(404).send('No se encontro el Pais solicitado')
+    throw new Error('No se encontró el país solicitado')
   }
 }
 
-module.exports = getCountryById
+module.exports = {
+  getCountryByIdController
+}

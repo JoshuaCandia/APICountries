@@ -1,11 +1,11 @@
 const { Country } = require('../../db.js')
 
-const getCountries = async (req, res) => {
+const getCountries = async () => {
   try {
     const countries = await Country.findAll()
-    res.status(200).json(countries)
+    return countries
   } catch (error) {
-    res.status(500).json({ message: 'Error al obtener los países.' })
+    throw new Error('Error al obtener los países.')
   }
 }
 

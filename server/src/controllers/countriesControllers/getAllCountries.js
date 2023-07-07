@@ -1,4 +1,5 @@
 const axios = require('axios')
+
 const { Country } = require('../../db')
 
 const URL = 'http://localhost:5000/countries'
@@ -19,7 +20,7 @@ const getAllCountries = async () => {
 
     await Country.bulkCreate(mappedCountries)
   } catch (error) {
-    console.error(error)
+    throw new Error('Error al obtener y guardar los países.')
   }
 }
 

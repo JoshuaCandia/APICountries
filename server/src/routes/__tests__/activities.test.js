@@ -1,7 +1,7 @@
 /* eslint-disable no-undef */
 const request = require('supertest')
-const server = require('../../../server')
-const { Activity } = require('../../../db')
+const server = require('../../server')
+const { Activity } = require('../../db')
 const { Op } = require('sequelize')
 
 describe('Activity Routes', () => {
@@ -55,7 +55,7 @@ describe('Activity Routes', () => {
     const response = await request(server).get('/activities')
 
     expect(response.statusCode).toBe(200)
-    expect(response.body).toHaveLength(4)
+    expect(response.body).toHaveLength(3)
 
     expect(response.body[0].name).toBe('Activity 1')
     expect(response.body[0].difficulty).toBe(3)

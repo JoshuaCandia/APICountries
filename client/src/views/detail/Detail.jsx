@@ -12,6 +12,7 @@ const Detail = () => {
 	// State Local par arecibir la informacion del country
 	const [data, setData] = useState({})
 
+	// Funcion para traer la informacion del country
 	useEffect(() => {
 		const fetchData = async () => {
 			try {
@@ -22,6 +23,7 @@ const Detail = () => {
 				console.error(error)
 			}
 		}
+		// Ejecuto la funcion en el mount
 		fetchData()
 	}, [])
 	const { flag, name, continent } = data

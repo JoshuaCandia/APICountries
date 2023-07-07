@@ -1,12 +1,9 @@
 const { Country } = require('../../db.js')
-
 const { Op } = require('sequelize')
 
-const getCountryByName = async (req, res) => {
+const getCountryByName = async name => {
   try {
-    const { name } = req.query
-
-    const countryByName = await Country.findAll({
+    const countries = await Country.findAll({
       where: {
         name: {
           [Op.iLike]: `%${name}%`
@@ -14,15 +11,13 @@ const getCountryByName = async (req, res) => {
       }
     })
 
-    if (countryByName.length === 0) {
-      return res
-        .status(404)
-        .json({ message: 'No se encontraron países con ese nombre.' })
+    if (countries.length === 0) {
+      throw new Error('No se encontraron países con ese nombre.')
     }
 
-    res.status(200).json(countryByName)
+    return countries
   } catch (error) {
-    res.status(500).json({ message: 'Ocurrió un error en el servidor.' })
+    throw new Error('Ocurrió un error en el servidor.')
   }
 }
 

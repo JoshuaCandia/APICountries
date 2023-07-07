@@ -1,13 +1,11 @@
 const { Router } = require('express')
 
-const {
-  postActivity,
-  getActivities
-} = require('../../handlers/activityHandlers')
+const postActivities = require('../../handlers/activityHandlers/postActivities')
+const getActivities = require('../../handlers/activityHandlers/getActivities')
 
 const routerActivities = Router()
 
-routerActivities.post('/', postActivity)
+routerActivities.post('/', postActivities)
 
 routerActivities.get('/', getActivities)
 
