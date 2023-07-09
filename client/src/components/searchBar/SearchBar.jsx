@@ -1,14 +1,22 @@
 import style from './searchbar.module.css'
-import { useState } from 'react'
 
+import { filterCountriesBySearch } from '../../redux/actions/actions'
+import { useState } from 'react'
+import { useDispatch } from 'react-redux'
 // Import buttons
-import ButtonSearch from '../buttons/buttonSearch/ButtonSearch'
 
 const SearchBar = () => {
 	const [name, setName] = useState('')
 
+	const dispatch = useDispatch()
+
 	const handleChange = event => {
 		setName(event.target.value)
+	}
+	const handleSearch = event => {
+		event.preventDefault()
+		dispatch(filterCountriesBySearch(name))
+		setName('')
 	}
 	return (
 		<div className={style.searchBar}>
@@ -19,11 +27,10 @@ const SearchBar = () => {
 				className={style.input}
 				onChange={handleChange}
 				placeholder='Busca paises acá...'
-				onClick={() => {
-					setName('')
-				}}
 			/>
-			<ButtonSearch setName={setName} />
+			<button onClick={handleSearch} type='button'>
+				Buscar
+			</button>
 		</div>
 	)
 }

@@ -26,13 +26,16 @@ const Detail = () => {
 		// Ejecuto la funcion en el mount
 		fetchData()
 	}, [])
-	const { flag, name, continent } = data
+	const { flag, name, continent, capital, population } = data
 	return (
 		<div className={style.detail}>
 			<Nav />
 			<div>
+				<h2>{name}</h2>
 				<img src={flag} alt={name} />
-				<h3>continent: {continent}</h3>
+				<h3>Capital: {capital}</h3>
+				<h3>Continent: {continent}</h3>
+				<h3>Poblacion: {population}</h3>
 			</div>
 		</div>
 	)

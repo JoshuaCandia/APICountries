@@ -13,9 +13,9 @@ const NavCards = ({ setCurrentPage, handleFilterName }) => {
 			<SearchBar />
 
 			<div className={style.selectors}>
-				<SelectContinent />
-				<SelectNames setCurrentPage={setCurrentPage} />
-				<SelectActivity />
+				<SelectContinent setCurrentPage={setCurrentPage} />
+				<SelectActivity setCurrentPage={setCurrentPage} />
+				<SelectNames />
 				<ButtonRestore />
 			</div>
 		</div>

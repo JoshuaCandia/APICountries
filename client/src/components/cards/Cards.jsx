@@ -4,34 +4,37 @@ import { getCountries } from '../../redux/actions/actions'
 
 import Card from '../card/Card'
 import NavCards from '../navCards/NavCards'
+import Pagination from '../pagination/Pagination'
 
-// Import Hooks
 import { useEffect, useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
-import Pagination from '../pagination/Pagination'
 
 const Cards = () => {
 	const dispatch = useDispatch()
 
-	// State global order
 	useSelector(state => state.order)
-	// State global countries
+
 	const countries = useSelector(state => state.countries)
 
-	const [currentPage, setCurrentPage] = useState(1)
-
 	// eslint-disable-next-line no-unused-vars
-	const [countriesPerPage, setCountriesPerPage] = useState(8)
-	const indexOfLastCountry = currentPage * countriesPerPage
-	const indexOfFirstCountry = indexOfLastCountry - countriesPerPage
-	const currentCountries = countries.slice(
-		indexOfFirstCountry,
-		indexOfLastCountry
-	)
+	const [currentPage, setCurrentPage] = useState(1)
+	const countriesPerPage = 8
+	const firstCountryIndex = (currentPage - 1) * countriesPerPage
+	const sliceIndex = firstCountryIndex + countriesPerPage
+	const currentCountries = countries.slice(firstCountryIndex, sliceIndex)
 
-	// Funcion de paginación
+	// Funcion de Paginado
 	const paginate = pageNumber => {
 		setCurrentPage(pageNumber)
+	}
+
+	// handlers de Paginado
+	const handlerPrev = () => {
+		setCurrentPage(currentPage - 1)
+	}
+
+	const handlerNext = () => {
+		setCurrentPage(currentPage + 1)
 	}
 
 	useEffect(() => {
@@ -57,9 +60,12 @@ const Cards = () => {
 			</div>
 
 			<Pagination
-				countries={countries}
+				currentPage={currentPage}
 				countriesPerPage={countriesPerPage}
 				paginate={paginate}
+				handlerPrev={handlerPrev}
+				handlerNext={handlerNext}
+				countries={countries?.length}
 			/>
 		</div>
 	)

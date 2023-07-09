@@ -1,10 +1,56 @@
-.ulPagination {
+.pag {
 	width: 100%;
 	display: flex;
 	justify-content: center;
-	gap: 2%;
+	align-items: center;
 }
 
-.number {
-	list-style: none;
+.prev {
+	display: inline-block;
+	margin: 9px;
+}
+
+.prev button {
+	background-color: #ffffff;
+	color: #000;
+	border-radius: 7px;
+	height: 27px;
+}
+
+.prev button:hover {
+	cursor: pointer;
+
+	color: #ffffff;
+	background-color: #000000;
+	transition: border-color 0.3s, color 0.3s, background-color 0.3s;
+}
+
+.numbers {
+	display: inline-block;
+	color: #000;
+}
+
+.numbers p {
+	backdrop-filter: blur(100px);
+
+	border-radius: 7px;
+}
+
+.Next {
+	display: inline-block;
+	margin: 9px;
+}
+
+.Next button {
+	background-color: #ffffff;
+	border-radius: 7px;
+	height: 27px;
+}
+
+.Next button:hover {
+	cursor: pointer;
+	border: 2px solid #ffffff;
+	color: #ffffff;
+	background-color: #000000;
+	transition: border-color 0.3s, color 0.3s, background-color 0.3s;
 }

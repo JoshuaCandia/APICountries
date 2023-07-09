@@ -4,12 +4,12 @@ import style from './selectContinent.module.css'
 import { useDispatch } from 'react-redux'
 import { filterCountriesByContinent } from '../../../redux/actions/actions'
 
-const SelectContinent = () => {
+const SelectContinent = ({ setCurrentPage }) => {
 	const dispatch = useDispatch()
 
 	const handleFilterContinent = event => {
 		dispatch(filterCountriesByContinent(event.target.value))
-		console.log(event.target.value)
+		setCurrentPage(1)
 	}
 
 	return (

@@ -1,25 +1,37 @@
 import style from './pagination.module.css'
-import { Link } from 'react-router-dom'
 
-const Pagination = ({ countriesPerPage, countries, paginate }) => {
-	const pageNumbers = []
-
-	for (let i = 1; i <= Math.ceil(countries.length / countriesPerPage); i++) {
-		pageNumbers.push(i)
+const Pagination = ({
+	currentPage,
+	countriesPerPage,
+	paginate,
+	handlerPrev,
+	handlerNext,
+	countries,
+}) => {
+	const pageNum = []
+	for (let i = 1; i <= Math.ceil(countries / countriesPerPage); i++) {
+		pageNum.push(i)
 	}
+
 	return (
-		<nav>
-			<ul className={style.ulPagination}>
-				{pageNumbers &&
-					pageNumbers.map(number => (
-						<li key={number} className={style.number}>
-							<Link onClick={() => paginate(number)} key={number}>
-								{number}
-							</Link>
-						</li>
-					))}
-			</ul>
-		</nav>
+		<div className={style.pag}>
+			<div className={style.prev}>
+				<button onClick={handlerPrev} disabled={currentPage === 1}>
+					PREV
+				</button>
+			</div>
+
+			<div className={style.numbers}>
+				{currentPage > pageNum.length && paginate(1)}
+				<p>{`${currentPage} de ${pageNum.length}`}</p>
+			</div>
+
+			<div className={style.Next}>
+				<button onClick={handlerNext} disabled={currentPage === pageNum.length}>
+					NEXT
+				</button>
+			</div>
+		</div>
 	)
 }
 

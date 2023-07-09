@@ -3,7 +3,7 @@ import style from './selectNames.module.css'
 import { useDispatch } from 'react-redux'
 import { filterCountriesByName, setOrder } from '../../../redux/actions/actions'
 
-const SelectNames = ({ setCurrentPage }) => {
+const SelectNames = () => {
 	const dispatch = useDispatch()
 
 	// eslint-disable-next-line no-unused-vars
@@ -12,7 +12,7 @@ const SelectNames = ({ setCurrentPage }) => {
 		const { value } = event.target
 
 		dispatch(filterCountriesByName(value))
-		setCurrentPage(1)
+
 		dispatch(setOrder(`Ordenado ${value}`))
 	}
 

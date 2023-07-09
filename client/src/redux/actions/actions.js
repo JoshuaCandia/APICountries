@@ -4,6 +4,7 @@ import {
 	FILTER_ACTIVITIES,
 	FILTER_COUNTRIES_BY_NAME,
 	SET_ORDER,
+	FILTER_COUNTRIES_BY_SEARCH,
 } from '../action-types/action-types'
 import axios from 'axios'
 
@@ -43,6 +44,19 @@ const filterCountriesByName = payload => {
 		})
 	}
 }
+
+const filterCountriesBySearch = name => {
+	return async dispatch => {
+		const { data } = await axios(
+			`http://localhost:3001/countries/name?name=${name}`
+		)
+		dispatch({
+			type: FILTER_COUNTRIES_BY_SEARCH,
+			payload: data,
+		})
+	}
+}
+
 const setOrder = order => {
 	return dispatch => {
 		dispatch({
@@ -57,5 +71,6 @@ export {
 	filterCountriesByContinent,
 	filterActivities,
 	filterCountriesByName,
+	filterCountriesBySearch,
 	setOrder,
 }
