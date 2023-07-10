@@ -1,13 +1,59 @@
 .home {
-	display: flex;
+	flex-direction: column;
 	justify-content: center;
 	align-items: center;
-	height: 95vh;
-	width: 95vw;
-	background-image: url('../../assets/countries.png');
-	background-size: cover;
+	position: relative;
+	min-height: 100vh;
 }
 
-.buttonDiv {
-	width: 100px;
+.centralDiv {
+	max-width: 100%;
+	height: 100%;
+	display: flex;
+	align-items: flex-start;
+
+	flex-direction: column;
+	position: relative;
+	z-index: 2;
+}
+
+.contenedorImg {
+	position: relative;
+	z-index: 2;
+	display: flex;
+	margin-left: 5%;
+	margin-top: 5%;
+	flex-direction: column;
+}
+.astronaut {
+	width: 400px;
+}
+
+/* Charla */
+.contenedorTexto {
+	position: relative;
+	z-index: 2;
+	margin-left: 5%;
+	margin-top: 5%;
+}
+.charla1 {
+	margin: 50px;
+}
+.span1 {
+	font-weight: bold;
+	color: white;
+}
+.span2 {
+	color: red;
+}
+
+/* BackGround */
+.spaceShip {
+}
+
+.buttonLanding {
+	margin-top: 50px;
+	width: 15%;
+	padding: 20px;
+	text-align: center;
 }

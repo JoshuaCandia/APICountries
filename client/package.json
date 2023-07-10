@@ -15,14 +15,14 @@
 		"react-dom": "^18.2.0",
 		"react-redux": "^8.0.5",
 		"react-router-dom": "^6.11.1",
+		"react-simple-typewriter": "^5.0.1",
 		"redux": "^4.2.1",
-		"redux-thunk": "^2.4.2"
+		"redux-thunk": "^2.4.2",
+		"typed.js": "^2.0.16"
 	},
 	"devDependencies": {
-		"prettier": "^2.8.8",
 		"@types/react": "^18.0.28",
 		"@types/react-dom": "^18.0.11",
-		"vite": "^4.3.2",
 		"@vitejs/plugin-react": "^4.0.0",
 		"eslint": "^8.44.0",
 		"eslint-config-prettier": "^8.8.0",
@@ -30,7 +30,9 @@
 		"eslint-plugin-import": "^2.27.5",
 		"eslint-plugin-n": "^16.0.1",
 		"eslint-plugin-promise": "^6.1.1",
-		"eslint-plugin-react": "^7.32.2"
+		"eslint-plugin-react": "^7.32.2",
+		"prettier": "^2.8.8",
+		"vite": "^4.3.2"
 	},
 	"eslintConfig": {
 		"extends": "./node_modules/standard/eslintrc.json"
