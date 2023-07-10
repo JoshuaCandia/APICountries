@@ -4,7 +4,7 @@
 }
 
 .selectNames select {
-	width: 100px;
+	width: 120px;
 
 	padding: 10px;
 
@@ -14,19 +14,22 @@
 	border: none;
 	border-radius: 4px;
 
-	background-color: #fff;
-	color: #333;
-	appearance: none;
+	background-color: hsl(209, 23%, 22%);
+	color: #fff;
+}
+
+.selectNames select:hover {
+	outline: none;
+	background-color: #3469c7;
 }
 
 .selectNames select:focus {
 	outline: none;
-	box-shadow: 0 0 4px rgba(0, 0, 0, 0.2);
 }
 
 .selectNames select option {
-	color: #000;
-	background-color: #fff;
+	color: #fff;
+	background-color: hsl(209, 23%, 22%);
 
 	text-align: start;
 }

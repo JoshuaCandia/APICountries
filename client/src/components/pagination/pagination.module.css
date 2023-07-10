@@ -3,6 +3,7 @@
 	display: flex;
 	justify-content: center;
 	align-items: center;
+	background-color: hsl(207, 26%, 17%);
 }
 
 .prev {
@@ -11,8 +12,8 @@
 }
 
 .prev button {
-	background-color: #ffffff;
-	color: #000;
+	background-color: hsl(209, 23%, 22%);
+	color: #fff;
 	border-radius: 7px;
 	height: 27px;
 }
@@ -27,7 +28,7 @@
 
 .numbers {
 	display: inline-block;
-	color: #000;
+	color: #fff;
 }
 
 .numbers p {
@@ -42,9 +43,10 @@
 }
 
 .Next button {
-	background-color: #ffffff;
+	background-color: hsl(209, 23%, 22%);
 	border-radius: 7px;
 	height: 27px;
+	color: white;
 }
 
 .Next button:hover {
@@ -53,4 +55,33 @@
 	color: #ffffff;
 	background-color: #000000;
 	transition: border-color 0.3s, color 0.3s, background-color 0.3s;
+}
+
+.numbers {
+}
+
+.inputPage {
+	width: 30px;
+	border: none;
+	text-align: start;
+}
+
+.inputPage:focus {
+	outline: none;
+}
+
+.buttonPage {
+	width: 30px;
+	background-color: hsl(209, 23%, 22%);
+	border: none;
+	text-align: start;
+}
+.buttonPage:hover {
+	cursor: pointer;
+	background-color: #000;
+	color: white;
+}
+
+.buttonPage:focus {
+	outline: none;
 }

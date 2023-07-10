@@ -1,4 +1,5 @@
 import style from './pagination.module.css'
+import { useState } from 'react'
 
 const Pagination = ({
 	currentPage,
@@ -7,10 +8,25 @@ const Pagination = ({
 	handlerPrev,
 	handlerNext,
 	countries,
+	setCurrentPage,
 }) => {
+	const [inputPage, setInputPage] = useState(currentPage)
+
 	const pageNum = []
 	for (let i = 1; i <= Math.ceil(countries / countriesPerPage); i++) {
 		pageNum.push(i)
+	}
+
+	const handleInputChange = event => {
+		setInputPage(event.target.value)
+	}
+
+	const goToPage = () => {
+		const parsedInput = parseInt(inputPage, 10)
+		if (parsedInput >= 1 && parsedInput <= pageNum.length) {
+			setCurrentPage(parsedInput)
+			setInputPage('')
+		}
 	}
 
 	return (
@@ -23,7 +39,19 @@ const Pagination = ({
 
 			<div className={style.numbers}>
 				{currentPage > pageNum.length && paginate(1)}
-				<p>{`${currentPage} de ${pageNum.length}`}</p>
+				<p>
+					<input
+						className={style.inputPage}
+						onChange={handleInputChange}
+						value={inputPage}
+						type='text'
+						placeholder={`${currentPage}`}
+					/>
+					<button className={style.buttonPage} onClick={goToPage}>
+						go
+					</button>
+					{` de ${pageNum.length}`}
+				</p>
 			</div>
 
 			<div className={style.Next}>

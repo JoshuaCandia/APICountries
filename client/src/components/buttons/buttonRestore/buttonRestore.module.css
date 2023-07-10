@@ -2,9 +2,9 @@
 	width: 120px;
 }
 .button {
-	width: 100px;
+	width: 90px;
 
-	padding: 10px;
+	padding: 7px;
 
 	font-size: 16px;
 	text-align: center;
@@ -12,16 +12,12 @@
 	border: none;
 	border-radius: 4px;
 
-	background-color: #fff;
-	color: #333;
+	background-color: hsl(209, 23%, 22%);
+	color: #fff;
 	appearance: none;
-}
-.button {
-	transition: transform 0.3s ease-in-out;
 }
 
 .button:hover {
-	transform: scale(1.1);
 	outline: none;
 }
 

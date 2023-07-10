@@ -14,8 +14,7 @@ const ButtonRestore = () => {
 	return (
 		<div className={style.buttonRestore}>
 			<button className={style.button} onClick={event => handleClick(event)}>
-				{' '}
-				Restaurar{' '}
+				Restaurar
 			</button>
 		</div>
 	)

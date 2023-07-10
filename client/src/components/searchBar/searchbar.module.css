@@ -1,8 +1,56 @@
 .searchBar {
+	width: 30%;
+	height: 50px;
+	margin-left: 15px;
 	display: flex;
 	justify-content: start;
+	height: 40px;
+}
+
+.input,
+.buttonSearch {
+	height: 50px;
+
+	font-size: 14px;
+	border: none;
+	outline: none;
 }
 
 .input {
+	color: #fff;
+	background-color: hsl(209, 23%, 22%);
 	width: 100%;
+	border-top-right-radius: 8px;
+	border-bottom-right-radius: 8px;
+}
+.input::placeholder {
+	color: #fff;
+}
+
+.buttonSearch {
+	width: 10%;
+
+	background-color: hsl(209, 23%, 22%);
+
+	border-top-left-radius: 4px;
+	border-bottom-left-radius: 4px;
+	cursor: pointer;
+}
+
+.lupa {
+	width: 25px;
+}
+
+/* Focus y Hovers */
+.input:focus {
+	outline: none;
+}
+
+.buttonSearch:focus {
+	outline: none;
+	box-shadow: 0 4px 8px rgba(0, 123, 255, 0.2);
+}
+
+.buttonSearch:hover {
+	background-color: #3469c7;
 }

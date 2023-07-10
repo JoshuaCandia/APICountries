@@ -18,6 +18,7 @@ const Cards = () => {
 
 	// eslint-disable-next-line no-unused-vars
 	const [currentPage, setCurrentPage] = useState(1)
+
 	const countriesPerPage = 8
 	const firstCountryIndex = (currentPage - 1) * countriesPerPage
 	const sliceIndex = firstCountryIndex + countriesPerPage
@@ -66,6 +67,7 @@ const Cards = () => {
 				handlerPrev={handlerPrev}
 				handlerNext={handlerNext}
 				countries={countries?.length}
+				setCurrentPage={setCurrentPage}
 			/>
 		</div>
 	)

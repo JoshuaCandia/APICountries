@@ -3,6 +3,8 @@ import style from './searchbar.module.css'
 import { filterCountriesBySearch } from '../../redux/actions/actions'
 import { useState } from 'react'
 import { useDispatch } from 'react-redux'
+
+import lupa from '../../assets/lupa.png'
 // Import buttons
 
 const SearchBar = () => {
@@ -20,17 +22,22 @@ const SearchBar = () => {
 	}
 	return (
 		<div className={style.searchBar}>
+			<button
+				className={style.buttonSearch}
+				onClick={handleSearch}
+				type='button'
+			>
+				<img className={style.lupa} src={lupa} alt='' />
+			</button>
 			<input
+				className={style.input}
 				type='search'
+				autoComplete='off'
 				value={name}
 				name='inputSearchBar'
-				className={style.input}
 				onChange={handleChange}
 				placeholder='Busca paises acá...'
 			/>
-			<button onClick={handleSearch} type='button'>
-				Buscar
-			</button>
 		</div>
 	)
 }

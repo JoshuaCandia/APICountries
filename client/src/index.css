@@ -4,10 +4,16 @@
 :root {
 	font-family: 'Poppins', sans-serif;
 	line-height: 1.5;
+	height: 100vh;
+	width: 100%;
+	background-color: hsl(207, 26%, 17%);
+	color: hsl(0, 0%, 100%);
 }
 body {
 	margin: 0;
 	padding: 0;
+	height: 100vh;
+	width: 100%;
 }
 
 a {
@@ -15,12 +21,20 @@ a {
 	text-decoration: inherit;
 }
 
-button:hover {
-	border-color: white;
+button {
+	all: unset;
+	background-color: hsl(209, 23%, 22%);
+
+	cursor: pointer;
+	color: white;
 }
-button:focus,
-button:focus-visible {
-	outline: 4px auto -webkit-focus-ring-color;
+button:focus {
+	outline: none;
+	-shadow: 0 4px 8px #3469c7;
+}
+
+button:hover {
+	background-color: #3469c7;
 }
 
 @media (prefers-color-scheme: light) {

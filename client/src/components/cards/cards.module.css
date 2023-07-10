@@ -1,9 +1,10 @@
 .gridCards {
 	width: 85%;
+	height: 95%;
 	margin-bottom: 5%;
 	border-radius: 6px;
 	margin-top: 1%;
-	background-color: #ebebeb;
+	background-color: hsl(207, 26%, 17%);
 	box-shadow: 0 2px 15px rgba(0, 0, 0, 0.08);
 }
 
@@ -11,9 +12,12 @@
 	margin-top: 2%;
 	display: flex;
 	justify-content: space-between;
+	margin-bottom: 5%;
 }
 
 .cards {
+	width: 90;
+	height: 90%;
 	display: grid;
 	justify-content: center;
 	align-items: center;

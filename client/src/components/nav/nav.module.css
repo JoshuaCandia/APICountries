@@ -1,6 +1,6 @@
 .nav {
 	display: flex;
-
+	background-color: hsl(209, 23%, 22%);
 	align-items: center;
 
 	width: 100%;
