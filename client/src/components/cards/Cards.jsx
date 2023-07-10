@@ -54,7 +54,7 @@ const Cards = () => {
 						key={country.id}
 						id={country.id}
 						flag={country.flag}
-						name={country.name}
+						commonName={country.commonName}
 						continent={country.continent}
 					/>
 				))}

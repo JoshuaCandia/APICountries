@@ -25,14 +25,18 @@
 	display: block;
 	width: 100%;
 	height: 200px;
-	object-fit: cover;
 }
 
 .infoDiv {
+	height: 100px;
+	color: white;
+	padding: 20px 0 0 20px;
+	display: flex;
+	flex-direction: column;
+	align-items: start;
+	background-color: hsl(209, 23%, 22%);
 }
 
 .countryTitle {
-	width: 100%;
-
 	margin: 0;
 }

@@ -38,13 +38,13 @@ const reducer = (state = initialState, { type, payload }) => {
 			const sortedArray =
 				payload === 'asc'
 					? state.countries.sort(function (a, b) {
-							if (a.name > b.name) return 1
-							if (b.name > a.name) return -1
+							if (a.commonName > b.commonName) return 1
+							if (b.commonName > a.commonName) return -1
 							return 0
 					  })
 					: state.countries.sort(function (a, b) {
-							if (a.name > b.name) return -1
-							if (b.name > a.name) return 1
+							if (a.commonName > b.commonName) return -1
+							if (b.commonName > a.commonName) return 1
 							return 0
 					  })
 			return {

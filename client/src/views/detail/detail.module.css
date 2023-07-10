@@ -1,0 +1,50 @@
+.back {
+	margin-left: 10%;
+	margin-top: 4%;
+}
+
+.detailDiv {
+	margin-left: 10%;
+	margin-top: 5%;
+
+	display: flex;
+	justify-content: start;
+	gap: 10%;
+	align-items: start;
+}
+
+.flag {
+	width: 700px;
+}
+.escudo {
+	width: 50px;
+}
+
+.dataDiv {
+	width: 500px;
+}
+
+.infoFlex {
+	width: 600px;
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+}
+
+.info1 {
+	height: 200px;
+}
+
+.info2 {
+	height: 200px;
+}
+
+.countryName {
+	font: 800;
+	font-size: 40px;
+}
+
+/* Colores para la data*/
+span {
+	color: rgba(255, 255, 255, 0.8);
+}

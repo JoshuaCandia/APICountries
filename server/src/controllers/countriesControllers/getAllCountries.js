@@ -9,18 +9,22 @@ const getAllCountries = async () => {
     const { data } = await axios.get(URL)
     const mappedCountries = data.map(country => ({
       id: country.cca3,
-      name: country.name.common,
-      flag: country.flags.svg,
+      commonName: country.name.common,
+      officialName: country.name.official,
+      languages: country.languages,
+      flag: country.flags.png,
+      escudo: country.coatOfArms.png,
       continent: country.continents[0],
       capital: country.capital ? country.capital[0] : 'No tiene',
-      subregion: country.subregion ? country.subregion : 'Sin Subregion',
+      region: country.region ? country.subregion : 'Sin Subregion',
       area: country.area,
-      population: country.population
+      population: country.population,
+      borders: country.borders
     }))
 
     await Country.bulkCreate(mappedCountries)
   } catch (error) {
-    throw new Error('Error al obtener y guardar los países.')
+    console.error(error)
   }
 }
 

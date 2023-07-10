@@ -48,7 +48,7 @@ const Pagination = ({
 						placeholder={`${currentPage}`}
 					/>
 					<button className={style.buttonPage} onClick={goToPage}>
-						go
+						➡
 					</button>
 					{` de ${pageNum.length}`}
 				</p>

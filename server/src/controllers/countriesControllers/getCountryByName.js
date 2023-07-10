@@ -5,7 +5,7 @@ const getCountryByName = async name => {
   try {
     const countries = await Country.findAll({
       where: {
-        name: {
+        commonName: {
           [Op.iLike]: `%${name}%`
         }
       }
@@ -17,7 +17,7 @@ const getCountryByName = async name => {
 
     return countries
   } catch (error) {
-    throw new Error('Ocurrió un error en el servidor.')
+    throw new Error(error.message)
   }
 }
 

@@ -2,9 +2,12 @@ import style from './buttonHome.module.css'
 import { Link } from 'react-router-dom'
 const ButtonHome = () => {
 	return (
-		<div className={style.buttonHome}>
+		<div className={style.buttonHomeDiv}>
 			<Link to='/home'>
-				<button>Home</button>
+				<button className={style.buttonHome}>
+					{' '}
+					<span>&larr;</span> Back
+				</button>
 			</Link>
 		</div>
 	)
