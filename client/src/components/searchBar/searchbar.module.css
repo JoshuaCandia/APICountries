@@ -28,8 +28,10 @@
 }
 
 .buttonSearch {
-	width: 10%;
-
+	width: 20%;
+	display: flex;
+	justify-content: center;
+	align-items: center;
 	background-color: hsl(209, 23%, 22%);
 
 	border-top-left-radius: 4px;
@@ -38,7 +40,8 @@
 }
 
 .lupa {
-	width: 25px;
+	width: 30px;
+	height: 30px;
 }
 
 /* Focus y Hovers */
