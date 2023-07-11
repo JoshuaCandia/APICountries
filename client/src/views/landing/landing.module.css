@@ -57,3 +57,9 @@
 	padding: 20px;
 	text-align: center;
 }
+.clickSpan {
+	position: absolute;
+	z-index: 2;
+	right: 42%;
+	top: 100%;
+}
