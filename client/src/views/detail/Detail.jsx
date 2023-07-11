@@ -28,6 +28,7 @@ const Detail = () => {
 		fetchData()
 	}, [])
 	const {
+		Activities,
 		flag,
 		commonName,
 		officialName,
@@ -38,6 +39,7 @@ const Detail = () => {
 		region,
 		borders,
 	} = data
+
 	return (
 		<div className={style.detail}>
 			<Nav />
@@ -64,6 +66,14 @@ const Detail = () => {
 							<p>
 								Continente: <span>{continent}</span>
 							</p>
+							{Activities && Activities.length !== 0 ? (
+								<p>
+									Actividades:{' '}
+									<span>
+										{Activities.map(activity => activity.name).join(', ')}
+									</span>
+								</p>
+							) : null}
 						</div>
 						<div className={style.info2}>
 							<p>
