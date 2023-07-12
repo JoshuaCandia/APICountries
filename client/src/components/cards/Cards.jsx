@@ -39,25 +39,13 @@ const Cards = () => {
 	}
 
 	useEffect(() => {
-		dispatch(getCountries())
+		if (!countries.length) dispatch(getCountries())
 	}, [])
 
 	return (
 		<div className={style.gridCards}>
 			<div className={style.navDiv}>
 				<NavCards setCurrentPage={setCurrentPage} />
-			</div>
-
-			<div className={style.cards}>
-				{currentCountries?.map(country => (
-					<Card
-						key={country.id}
-						id={country.id}
-						flag={country.flag}
-						commonName={country.commonName}
-						continent={country.continent}
-					/>
-				))}
 			</div>
 
 			<Pagination
@@ -69,6 +57,17 @@ const Cards = () => {
 				countries={countries?.length}
 				setCurrentPage={setCurrentPage}
 			/>
+			<div className={style.cards}>
+				{currentCountries?.map(country => (
+					<Card
+						key={country.id}
+						id={country.id}
+						flag={country.flag}
+						commonName={country.commonName}
+						continent={country.continent}
+					/>
+				))}
+			</div>
 		</div>
 	)
 }

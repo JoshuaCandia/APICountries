@@ -60,18 +60,6 @@ const reducer = (state = initialState, { type, payload }) => {
 				countries: state.countriesCopy,
 			}
 
-		/* case FILTER_ACTIVITIES:
-			const activitiesCopy = state.activities
-			const activitiesFiltered =
-				payload === 'default'
-					? activitiesCopy
-					: activitiesCopy.filter(activity => activity.continent === payload)
-			return {
-				...state,
-				activities: payload,
-				activitiesFiltered,
-			} */
-
 		case SET_ORDER:
 			return {
 				...state,

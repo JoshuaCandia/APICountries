@@ -15,6 +15,7 @@
 
 .flag {
 	width: 700px;
+	height: 450px;
 }
 .escudo {
 	width: 50px;
@@ -47,4 +48,22 @@
 /* Colores para la data*/
 span {
 	color: rgba(255, 255, 255, 0.8);
+}
+.paisesVecinos {
+	margin-top: 2%;
+	display: flex;
+	justify-content: center;
+	align-items: flex-end;
+
+	gap: 15px;
+}
+.pVecinos {
+	margin: 0;
+	padding: 10px;
+}
+.vecino {
+	padding: 10px;
+	display: flex;
+
+	background-color: hsl(209, 23%, 22%);
 }

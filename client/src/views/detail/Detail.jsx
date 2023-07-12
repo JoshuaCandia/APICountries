@@ -2,10 +2,10 @@ import style from './detail.module.css'
 
 import Nav from '../../components/nav/Nav'
 import ButtonHome from '../../components/buttons/buttonHome/ButtonHome'
-
-import axios from 'axios'
 import { useEffect, useState } from 'react'
-import { useParams } from 'react-router-dom'
+import { Link, useParams } from 'react-router-dom'
+
+import fetchData from './fetchData'
 
 const Detail = () => {
 	const { id } = useParams()
@@ -13,20 +13,12 @@ const Detail = () => {
 	// State Local par arecibir la informacion del country
 	const [data, setData] = useState({})
 
-	// Funcion para traer la informacion del country
-	useEffect(() => {
-		const fetchData = async () => {
-			try {
-				const { data } = await axios(`http://localhost:3001/countries/${id}`)
+	const [vecinos, setVecinos] = useState([])
 
-				setData(data)
-			} catch (error) {
-				console.error(error)
-			}
-		}
-		// Ejecuto la funcion en el mount
-		fetchData()
-	}, [])
+	useEffect(() => {
+		fetchData(id, setData, setVecinos, vecinos)
+	}, [id])
+
 	const {
 		Activities,
 		flag,
@@ -37,8 +29,11 @@ const Detail = () => {
 		area,
 		population,
 		region,
-		borders,
+		timezone,
 	} = data
+
+	// Borro los {} que me ponen en los strings pq mi api es un asco =)
+	const timezoneString = timezone?.slice(1, timezone.length - 1).split(',')[0]
 
 	return (
 		<div className={style.detail}>
@@ -74,6 +69,7 @@ const Detail = () => {
 									</span>
 								</p>
 							) : null}
+							<p>Zona Horaria: {timezoneString}</p>
 						</div>
 						<div className={style.info2}>
 							<p>
@@ -87,11 +83,20 @@ const Detail = () => {
 							</p>
 						</div>
 					</div>
-					<p>
-						Id de Paises Vecinos:<span>{borders}</span>
-					</p>
 				</div>
 			</div>
+			{vecinos.length > 0 && (
+				<div className={style.paisesVecinos}>
+					<p className={style.pVecinos}>Paises Vecinos:</p>
+					{vecinos.map(country => (
+						<Link key={country.id} to={`/detail/${country.id}`}>
+							<span className={style.vecino} onClick={() => setVecinos([])}>
+								{` ${country.commonName}`}
+							</span>
+						</Link>
+					))}
+				</div>
+			)}
 		</div>
 	)
 }

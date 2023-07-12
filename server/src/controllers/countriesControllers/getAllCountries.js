@@ -19,7 +19,8 @@ const getAllCountries = async () => {
       region: country.region ? country.subregion : 'Sin Subregion',
       area: country.area,
       population: country.population,
-      borders: country.borders
+      borders: country.borders,
+      timezone: country.timezones
     }))
 
     await Country.bulkCreate(mappedCountries)

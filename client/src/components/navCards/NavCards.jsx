@@ -37,7 +37,10 @@ const NavCards = ({ setCurrentPage }) => {
 						<SelectContinent setCurrentPage={setCurrentPage} />
 						<SelectActivity setCurrentPage={setCurrentPage} />
 						<SelectNames />
-						<ButtonRestore />
+						<ButtonRestore
+							setCurrentPage={setCurrentPage}
+							setMenuOpen={setMenuOpen}
+						/>
 					</div>
 				)}
 			</div>

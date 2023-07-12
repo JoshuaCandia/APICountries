@@ -7,7 +7,7 @@ const Home = () => {
 	return (
 		<div className={style.home}>
 			<Nav />
-			<div className={style.titleAndCreate}></div>
+
 			<Cards />
 		</div>
 	)
