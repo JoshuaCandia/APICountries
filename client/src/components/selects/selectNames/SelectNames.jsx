@@ -6,8 +6,6 @@ import { filterCountriesByName, setOrder } from '../../../redux/actions/actions'
 const SelectNames = () => {
 	const dispatch = useDispatch()
 
-	// eslint-disable-next-line no-unused-vars
-
 	const handleFilterName = event => {
 		const { value } = event.target
 
@@ -24,7 +22,7 @@ const SelectNames = () => {
 				id='selectNombres'
 				defaultValue='default'
 			>
-				<option value='default' disabled>
+				<option className={style.defaultOption} value='default' disabled>
 					Nombre
 				</option>
 				<option value='asc'>A-Z</option>

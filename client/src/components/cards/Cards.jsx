@@ -47,7 +47,7 @@ const Cards = () => {
 	return (
 		<div className={style.gridCards}>
 			<div className={style.navDiv}>
-				<NavCards setCurrentPage={setCurrentPage} />
+				<NavCards setCurrentPage={setCurrentPage} setInputPage={setInputPage} />
 			</div>
 
 			<Pagination
@@ -67,6 +67,7 @@ const Cards = () => {
 						key={country.id}
 						id={country.id}
 						flag={country.flag}
+						population={country.population}
 						commonName={country.commonName}
 						continent={country.continent}
 					/>

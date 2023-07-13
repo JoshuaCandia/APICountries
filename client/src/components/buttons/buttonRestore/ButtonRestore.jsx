@@ -3,14 +3,16 @@ import style from './buttonRestore.module.css'
 import { getCountries } from '../../../redux/actions/actions'
 import { useDispatch } from 'react-redux'
 
-const ButtonRestore = ({ setMenuOpen, setCurrentPage }) => {
+const ButtonRestore = ({ setCurrentPage, setRestore, setInputPage }) => {
 	const dispatch = useDispatch()
 
 	const handleClick = event => {
 		event.preventDefault()
 		dispatch(getCountries())
-		setMenuOpen(false)
+
 		setCurrentPage(1)
+		setRestore(false)
+		setInputPage(1)
 	}
 
 	return (

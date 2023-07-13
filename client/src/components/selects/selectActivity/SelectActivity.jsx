@@ -3,12 +3,13 @@ import style from './selectActivity.module.css'
 import { useDispatch } from 'react-redux'
 import { filterActivities } from '../../../redux/actions/actions'
 
-const SelectActivity = ({ setCurrentPage }) => {
+const SelectActivity = ({ setCurrentPage, setInputPage }) => {
 	const dispatch = useDispatch()
 
 	const handleFilterActivities = event => {
 		dispatch(filterActivities(event.target.value))
 		setCurrentPage(1)
+		setInputPage(1)
 	}
 
 	return (
@@ -19,7 +20,7 @@ const SelectActivity = ({ setCurrentPage }) => {
 				id='selectActividad'
 				defaultValue='default'
 			>
-				<option value='default' disabled>
+				<option className={style.defaultOption} value='default' disabled>
 					Actividad
 				</option>
 				<option value='All'>Con Actividades</option>

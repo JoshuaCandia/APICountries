@@ -1,11 +1,13 @@
 /* eslint-disable no-case-declarations */
 import {
-	FILTER_COUNTRIES_BY_CONTINENT,
 	GET_COUNTRIES,
 	// FILTER_ACTIVITIES,
-	FILTER_COUNTRIES_BY_NAME,
+	FILTER_COUNTRIES_BY_CONTINENT,
 	FILTER_COUNTRIES_BY_SEARCH,
 	SET_ORDER,
+	// Or
+	FILTER_COUNTRIES_BY_NAME,
+	FILTER_COUNTRIES_BY_POPULATION,
 } from '../action-types/action-types'
 
 const initialState = {
@@ -50,6 +52,24 @@ const reducer = (state = initialState, { type, payload }) => {
 			return {
 				...state,
 				countries: sortedArray,
+			}
+
+		case FILTER_COUNTRIES_BY_POPULATION:
+			const sortedArrayPopulation =
+				payload === 'asc'
+					? state.countries.sort(function (a, b) {
+							if (a.population > b.population) return -1
+							if (b.population > a.population) return 1
+							return 0
+					  })
+					: state.countries.sort(function (a, b) {
+							if (a.population > b.population) return 1
+							if (b.population > a.population) return -1
+							return 0
+					  })
+			return {
+				...state,
+				countries: sortedArrayPopulation,
 			}
 
 		case FILTER_COUNTRIES_BY_SEARCH:

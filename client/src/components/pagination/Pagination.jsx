@@ -27,12 +27,14 @@ const Pagination = ({
 		if (parsedInput >= 1 && parsedInput <= pageNum.length) {
 			setCurrentPage(parsedInput)
 			setInputPage('')
-		} else
+		} else {
 			Swal.fire(
 				'Error',
 				'Debe ingresar un número entre 1 y ' + pageNum.length,
 				'error'
 			)
+			setInputPage(currentPage)
+		}
 	}
 
 	return (

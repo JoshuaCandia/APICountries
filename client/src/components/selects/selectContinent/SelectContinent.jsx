@@ -4,12 +4,13 @@ import style from './selectContinent.module.css'
 import { useDispatch } from 'react-redux'
 import { filterCountriesByContinent } from '../../../redux/actions/actions'
 
-const SelectContinent = ({ setCurrentPage }) => {
+const SelectContinent = ({ setCurrentPage, setInputPage }) => {
 	const dispatch = useDispatch()
 
 	const handleFilterContinent = event => {
 		dispatch(filterCountriesByContinent(event.target.value))
 		setCurrentPage(1)
+		setInputPage(1)
 	}
 
 	return (
@@ -20,7 +21,7 @@ const SelectContinent = ({ setCurrentPage }) => {
 				id='selectContinent'
 				defaultValue='default'
 			>
-				<option value='default' disabled>
+				<option className={style.defaultOption} value='default' disabled>
 					Continente
 				</option>
 				<option value='South America'>Sudamérica</option>

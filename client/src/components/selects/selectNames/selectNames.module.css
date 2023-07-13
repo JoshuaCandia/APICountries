@@ -33,3 +33,6 @@
 
 	text-align: start;
 }
+.defaultOption {
+	display: none;
+}

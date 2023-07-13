@@ -1,48 +1,55 @@
 import style from './navCards.module.css'
-import { useState, Fragment } from 'react'
-
+import { useEffect, useState } from 'react'
 // import Selects
 import SelectActivity from '../selects/selectActivity/SelectActivity'
 import SelectNames from '../selects/selectNames/SelectNames'
 import SelectContinent from '../selects/selectContinent/SelectContinent'
+import SelectPopulation from '../selects/selectPopulation/SelectPopulation'
 
 import ButtonRestore from '../buttons/buttonRestore/ButtonRestore'
 import SearchBar from '../searchBar/SearchBar'
 
-const NavCards = ({ setCurrentPage }) => {
-	const [menuOpen, setMenuOpen] = useState(false)
+const NavCards = ({ setCurrentPage, setInputPage }) => {
+	const [restore, setRestore] = useState(true)
 
-	const handleMenuOpen = () => {
-		setMenuOpen(!menuOpen)
-	}
-
+	useEffect(() => {
+		setRestore(true)
+	}, [restore])
 	return (
 		<div className={style.nav}>
 			<SearchBar />
 
 			<div className={style.menu}>
-				<button className={style.button} onClick={handleMenuOpen}>
-					{menuOpen ? (
-						<Fragment>
-							<span>&rarr;</span> Filtrar Paises
-						</Fragment>
-					) : (
-						<Fragment>
-							<span>&larr;</span> Filtrar Paises
-						</Fragment>
-					)}
-				</button>
-				{menuOpen && (
+				{restore && (
 					<div className={style.selectors}>
-						<SelectContinent setCurrentPage={setCurrentPage} />
-						<SelectActivity setCurrentPage={setCurrentPage} />
-						<SelectNames />
-						<ButtonRestore
-							setCurrentPage={setCurrentPage}
-							setMenuOpen={setMenuOpen}
-						/>
+						<div className={style.filtrarPaises}>
+							<p>Filtrar: </p>
+							<SelectContinent
+								setInputPage={setInputPage}
+								setCurrentPage={setCurrentPage}
+							/>
+							<SelectActivity
+								setInputPage={setInputPage}
+								setCurrentPage={setCurrentPage}
+							/>
+						</div>
+
+						<div className={style.ordenarPaises}>
+							<p>Ordenar :</p>
+							<SelectNames />
+							<SelectPopulation />
+						</div>
 					</div>
 				)}
+				<div className={style.restaurarDiv}>
+					<p>Restaurar</p>
+					<ButtonRestore
+						restore={restore}
+						setRestore={setRestore}
+						setCurrentPage={setCurrentPage}
+						setInputPage={setInputPage}
+					/>
+				</div>
 			</div>
 		</div>
 	)

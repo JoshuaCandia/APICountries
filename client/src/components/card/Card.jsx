@@ -3,7 +3,7 @@ import style from './card.module.css'
 import { Link } from 'react-router-dom'
 
 const Card = country => {
-	const { id, flag, commonName, continent } = country
+	const { id, flag, commonName, continent, population } = country
 
 	return (
 		<div className={style.card} key={id}>
@@ -14,7 +14,10 @@ const Card = country => {
 
 				<div className={style.infoDiv}>
 					<h3 className={style.countryTitle}>{commonName}</h3>
-					<h5 className={style.continent}>Continent:{continent}</h5>
+					<div className={style.details}>
+						<h5 className={style.continent}>Continente: {continent}</h5>
+						<h5 className={style.population}>Población: {population}</h5>
+					</div>
 				</div>
 			</Link>
 		</div>
