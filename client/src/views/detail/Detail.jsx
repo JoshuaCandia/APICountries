@@ -5,7 +5,7 @@ import ButtonHome from '../../components/buttons/buttonHome/ButtonHome'
 import { useEffect, useState } from 'react'
 import { Link, useParams } from 'react-router-dom'
 
-import fetchData from './fetchData'
+import fetchData from './modules/fetchData'
 
 const Detail = () => {
 	const { id } = useParams()
@@ -61,14 +61,7 @@ const Detail = () => {
 							<p>
 								Continente: <span>{continent}</span>
 							</p>
-							{Activities && Activities.length !== 0 ? (
-								<p>
-									Actividades:{' '}
-									<span>
-										{Activities.map(activity => activity.name).join(', ')}
-									</span>
-								</p>
-							) : null}
+
 							<p>Zona Horaria: {timezoneString}</p>
 						</div>
 						<div className={style.info2}>
@@ -81,6 +74,14 @@ const Detail = () => {
 							<p>
 								Area: <span>{area}</span>
 							</p>
+							{Activities && Activities.length !== 0 ? (
+								<p>
+									Actividades:{' '}
+									<span>
+										{Activities.map(activity => activity.name).join(', ')}
+									</span>
+								</p>
+							) : null}
 						</div>
 					</div>
 				</div>

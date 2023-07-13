@@ -67,3 +67,7 @@ span {
 
 	background-color: hsl(209, 23%, 22%);
 }
+
+.vecino:hover {
+	background-color: #3469c7;
+}

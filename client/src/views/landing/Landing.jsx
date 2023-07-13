@@ -17,8 +17,8 @@ const Landing = () => {
 			'Hace click en mi nave para acompañarme!',
 		],
 		loop: false,
-		typeSpeed: 90,
-		deleteSpeed: 120,
+		typeSpeed: 60,
+		deleteSpeed: 60,
 	})
 
 	useEffect(() => {

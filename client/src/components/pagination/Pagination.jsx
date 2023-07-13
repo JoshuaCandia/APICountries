@@ -1,5 +1,4 @@
 import style from './pagination.module.css'
-import { useState } from 'react'
 
 const Pagination = ({
 	currentPage,
@@ -9,9 +8,9 @@ const Pagination = ({
 	handlerNext,
 	countries,
 	setCurrentPage,
+	inputPage,
+	setInputPage,
 }) => {
-	const [inputPage, setInputPage] = useState(currentPage)
-
 	const pageNum = []
 	for (let i = 1; i <= Math.ceil(countries / countriesPerPage); i++) {
 		pageNum.push(i)
@@ -43,8 +42,8 @@ const Pagination = ({
 					<input
 						className={style.inputPage}
 						onChange={handleInputChange}
-						value={inputPage}
 						type='text'
+						value={inputPage}
 						placeholder={`${currentPage}`}
 					/>
 					<button className={style.buttonPage} onClick={goToPage}>

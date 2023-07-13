@@ -16,10 +16,10 @@ const Cards = () => {
 
 	const countries = useSelector(state => state.countries)
 
-	// eslint-disable-next-line no-unused-vars
-	const [currentPage, setCurrentPage] = useState(1)
+	const [currentPage, setCurrentPage] = useState(1) // State de la pagina actual
+	const [inputPage, setInputPage] = useState('') // State del input de pagina
 
-	const countriesPerPage = 8
+	const countriesPerPage = 12
 	const firstCountryIndex = (currentPage - 1) * countriesPerPage
 	const sliceIndex = firstCountryIndex + countriesPerPage
 	const currentCountries = countries.slice(firstCountryIndex, sliceIndex)
@@ -32,10 +32,12 @@ const Cards = () => {
 	// handlers de Paginado
 	const handlerPrev = () => {
 		setCurrentPage(currentPage - 1)
+		setInputPage(currentPage - 1)
 	}
 
 	const handlerNext = () => {
 		setCurrentPage(currentPage + 1)
+		setInputPage(currentPage + 1)
 	}
 
 	useEffect(() => {
@@ -56,6 +58,8 @@ const Cards = () => {
 				handlerNext={handlerNext}
 				countries={countries?.length}
 				setCurrentPage={setCurrentPage}
+				inputPage={inputPage}
+				setInputPage={setInputPage}
 			/>
 			<div className={style.cards}>
 				{currentCountries?.map(country => (
