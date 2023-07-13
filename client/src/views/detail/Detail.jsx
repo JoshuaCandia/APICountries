@@ -16,7 +16,7 @@ const Detail = () => {
 	const [vecinos, setVecinos] = useState([])
 
 	useEffect(() => {
-		fetchData(id, setData, setVecinos, vecinos)
+		fetchData(id, setData, setVecinos)
 	}, [id])
 
 	const {

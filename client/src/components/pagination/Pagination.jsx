@@ -1,4 +1,5 @@
 import style from './pagination.module.css'
+import Swal from 'sweetalert2'
 
 const Pagination = ({
 	currentPage,
@@ -12,6 +13,7 @@ const Pagination = ({
 	setInputPage,
 }) => {
 	const pageNum = []
+
 	for (let i = 1; i <= Math.ceil(countries / countriesPerPage); i++) {
 		pageNum.push(i)
 	}
@@ -25,7 +27,12 @@ const Pagination = ({
 		if (parsedInput >= 1 && parsedInput <= pageNum.length) {
 			setCurrentPage(parsedInput)
 			setInputPage('')
-		}
+		} else
+			Swal.fire(
+				'Error',
+				'Debe ingresar un número entre 1 y ' + pageNum.length,
+				'error'
+			)
 	}
 
 	return (
