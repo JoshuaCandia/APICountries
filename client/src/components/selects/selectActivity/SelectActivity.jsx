@@ -24,7 +24,7 @@ const SelectActivity = ({ setCurrentPage, setInputPage }) => {
 					Actividad
 				</option>
 				<option value='All'>Con Actividades</option>
-				<option value='Crated'>Sin Actividades</option>
+				<option value='Created'>Sin Actividades</option>
 			</select>
 		</div>
 	)

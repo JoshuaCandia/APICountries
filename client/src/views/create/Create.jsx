@@ -1,6 +1,6 @@
 import style from './create.module.css'
-
 import Nav from '../../components/nav/Nav'
+
 import { useActivityForm } from './modules/activityFunctions'
 
 const Create = () => {
@@ -8,13 +8,20 @@ const Create = () => {
 	const {
 		activity,
 		countries,
+		errors,
+		next,
 		handleChangeName,
+		handleSubmitName,
 		handleChangeDifficulty,
+		handleSubmitDifficulty,
 		handleChangeDuration,
+		handleSubmitDuration,
 		handleChangeSeason,
 		handleSelectCountry,
 		submitActivity,
 	} = useActivityForm()
+
+	const { difficulty, duration, name } = activity
 
 	return (
 		<div className={style.create}>
@@ -22,36 +29,62 @@ const Create = () => {
 
 			<div className={style.form}>
 				<form>
-					{/* Input para el nombre */}
-					<input
-						type='text'
-						placeholder='Name'
-						value={activity.name}
-						onChange={handleChangeName}
-					/>
+					{next === 1 && (
+						<div className={style.inputName}>
+							<input
+								type='text'
+								placeholder='Name'
+								name='name'
+								value={name}
+								onChange={handleChangeName}
+							/>
+
+							<button type='button' onClick={() => handleSubmitName()}>
+								Send
+							</button>
+							{errors.name && <p className={style.error}>{errors.name}</p>}
+						</div>
+					)}
 
 					{/* Input de rango para la dificultad */}
-					<div className={style.inputDificulty}>
-						<input
-							type='range'
-							min={1}
-							max={5}
-							placeholder='Difficulty'
-							value={activity.difficulty}
-							onChange={handleChangeDifficulty}
-						/>
-						{activity.difficulty ? (
-							<p>Difficulty: {activity.difficulty}</p>
-						) : null}
-					</div>
+					{next === 2 && (
+						<div className={style.inputDificulty}>
+							<input
+								type='range'
+								min={1}
+								max={5}
+								placeholder='Difficulty'
+								value={difficulty}
+								onChange={handleChangeDifficulty}
+								name='difficulty'
+							/>
+							<button type='button' onClick={() => handleSubmitDifficulty()}>
+								Send
+							</button>
+							{errors.difficulty && (
+								<p className={style.error}>{errors.difficulty}</p>
+							)}
+							{activity.difficulty ? (
+								<p>Difficulty: {activity.difficulty}</p>
+							) : null}
+						</div>
+					)}
 
 					{/* Input para la duración */}
-					<input
-						type='number'
-						placeholder='Duration'
-						value={activity.duration}
-						onChange={handleChangeDuration}
-					/>
+					{next === 3 && (
+						<div className='inputDuration'>
+							<input
+								type='number'
+								placeholder='Duration'
+								value={duration}
+								name='duration'
+								onChange={handleChangeDuration}
+							/>
+							<button type='button' onClick={() => handleSubmitDuration()}>
+								Send
+							</button>
+						</div>
+					)}
 
 					{/* Select para la temporada */}
 					<select
@@ -59,7 +92,7 @@ const Create = () => {
 						defaultValue='default'
 						onChange={handleChangeSeason}
 					>
-						<option value='default' disabled>
+						<option className={style.defaultValue} value='default' disabled>
 							Select Season
 						</option>
 						<option value='Spring'>Spring</option>
@@ -75,7 +108,7 @@ const Create = () => {
 						id=''
 						defaultValue='default'
 					>
-						<option value='default' disabled>
+						<option className={style.defaultValue} value='default' disabled>
 							Paises Asociados
 						</option>
 						{countries.map(country => (

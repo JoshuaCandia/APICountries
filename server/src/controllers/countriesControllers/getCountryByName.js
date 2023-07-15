@@ -1,4 +1,4 @@
-const { Country } = require('../../db.js')
+const { Country, Activity } = require('../../db.js')
 const { Op } = require('sequelize')
 
 const getCountryByName = async name => {
@@ -8,7 +8,8 @@ const getCountryByName = async name => {
         commonName: {
           [Op.iLike]: `%${name}%`
         }
-      }
+      },
+      include: Activity
     })
 
     if (countries.length === 0) {

@@ -12,7 +12,7 @@ const postActivity = async (req, res) => {
     }
 
     const createActivities = await postActivities(post, countryIds)
-
+    console.log(countryIds)
     res.status(201).json(createActivities)
   } catch (error) {
     res.status(400).json({ error: error.message })

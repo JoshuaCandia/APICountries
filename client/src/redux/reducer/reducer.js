@@ -1,11 +1,15 @@
 /* eslint-disable no-case-declarations */
 import {
+	// Traer Paises
 	GET_COUNTRIES,
-	// FILTER_ACTIVITIES,
+	// Crear Actividades
+	CREATE_ACTIVITIES,
+	// Filtrar paises
+	FILTER_ACTIVITIES,
 	FILTER_COUNTRIES_BY_CONTINENT,
 	FILTER_COUNTRIES_BY_SEARCH,
 	SET_ORDER,
-	// Or
+	// Ordenar Paises
 	FILTER_COUNTRIES_BY_NAME,
 	FILTER_COUNTRIES_BY_POPULATION,
 } from '../action-types/action-types'
@@ -79,11 +83,28 @@ const reducer = (state = initialState, { type, payload }) => {
 
 				countries: state.countriesCopy,
 			}
+		case FILTER_ACTIVITIES:
+			const activitiesFiltered =
+				payload === 'Created'
+					? state.countriesCopy
+					: state.countriesCopy.filter(country => country.Activities.length > 0)
+
+			return {
+				...state,
+				countries: activitiesFiltered,
+			}
 
 		case SET_ORDER:
 			return {
 				...state,
 				order: payload,
+			}
+		case CREATE_ACTIVITIES:
+			const found = state.activities.find(act => act.name === payload.name)
+			if (found) return { ...state }
+			return {
+				...state,
+				activities: [...state.activities, payload],
 			}
 		default:
 			return state

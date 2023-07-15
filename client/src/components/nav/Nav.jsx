@@ -2,6 +2,7 @@ import style from './nav.module.css'
 
 // Import components
 import ButtonCreate from '../../components/buttons/buttonCreate/ButtonCreate'
+import ButtonLogOut from '../buttons/buttonLogOut/ButtonLogOut'
 import Title from '../Title/Title'
 
 // Import hooks
@@ -15,6 +16,7 @@ const Nav = () => {
 			</Link>
 			<div className={style.buttons}>
 				<ButtonCreate />
+				<ButtonLogOut />
 			</div>
 		</div>
 	)

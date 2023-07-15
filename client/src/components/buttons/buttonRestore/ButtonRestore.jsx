@@ -11,8 +11,8 @@ const ButtonRestore = ({ setCurrentPage, setRestore, setInputPage }) => {
 		dispatch(getCountries())
 
 		setCurrentPage(1)
-		setRestore(false)
 		setInputPage(1)
+		setRestore(false)
 	}
 
 	return (
