@@ -1,29 +1,24 @@
 import { useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import { createActivities } from '../../../redux/actions/actions'
-import { validate } from './validations'
+
+import { useValidations } from './useValidations'
+
 export const useActivityForm = () => {
 	const dispatch = useDispatch()
 	// State para siguiente input
-	const [next, setNext] = useState(1)
-
+	const [next, setNext] = useState(0)
+	const { errors, validations } = useValidations(next)
 	// Estado local para almacenar los valores del formulario
 	const [activity, setActivity] = useState({
 		name: '',
 		difficulty: 0,
 		duration: 0,
-		season: 'default',
+		season: [],
 		countryIds: [],
 	})
 
 	// State de errores
-	const [errors, setErrors] = useState({
-		name: '',
-		difficulty: '',
-		duration: '',
-		season: '',
-		countryIds: '',
-	})
 
 	// Función para enviar la actividad al servidor
 	const submitActivity = event => {
@@ -31,57 +26,82 @@ export const useActivityForm = () => {
 		dispatch(createActivities(activity))
 		setActivity({
 			name: '',
-			difficulty: 3,
+			difficulty: 0,
 			duration: 0,
-			season: 'default',
+			season: [],
 			countryIds: [],
 		})
+		setNext(7)
 	}
 	// Manejador de cambio para el campo de nombre
 	const handleChangeName = event => {
-		setErrors(validate(activity, next))
+		validations(event.target.value)
 		setActivity({ ...activity, name: event.target.value })
 	}
 
 	const handleSubmitName = () => {
-		setErrors(validate(activity, next))
+		validations(activity.name)
 		if (errors.name === '' && activity.name !== '') {
 			setNext(2)
 		}
 	}
 
 	const handleChangeDifficulty = event => {
-		setErrors(validate(activity, next))
+		validations(event.target.value)
 		setActivity({ ...activity, difficulty: event.target.value })
 	}
 
 	const handleSubmitDifficulty = () => {
-		setErrors(validate(activity, next))
+		validations(activity.difficulty)
 		if (errors.difficulty === '' && activity.difficulty !== 0) {
 			setNext(3)
 		}
 	}
 	const handleChangeDuration = event => {
-		setErrors(validate(activity, next))
+		validations(event.target.value)
 		setActivity({ ...activity, duration: event.target.value })
 	}
 	const handleSubmitDuration = () => {
+		validations(activity.duration)
 		if (errors.duration === '' && activity.duration !== 0) {
 			setNext(4)
 		}
 	}
 	// Manejador de cambio para el campo de temporada
-	const handleChangeSeason = event => {
+	const handleSelectSeason = event => {
+		validations(event.target.value)
 		const selectedSeasons = event.target.value
-		const updatedSeasons = [...activity.season, selectedSeasons]
-		setActivity({ ...activity, season: updatedSeasons })
+		if (activity.season.includes(selectedSeasons)) {
+			validations('Season Repetida')
+		} else {
+			const updatedSeasons = [...activity.season, selectedSeasons]
+			setActivity({ ...activity, season: updatedSeasons })
+		}
+	}
+
+	const handleSubmitSeason = () => {
+		validations(activity.season)
+		if (errors.season === '' && activity.season.length !== 0) {
+			setNext(5)
+		}
 	}
 
 	// Manejador de cambio para el campo de países asociados
 	const handleSelectCountry = event => {
+		validations(event.target.value)
 		const selectedCountryId = event.target.value
-		const updatedCountryIds = [...activity.countryIds, selectedCountryId]
-		setActivity({ ...activity, countryIds: updatedCountryIds })
+		if (activity.countryIds.includes(selectedCountryId)) {
+			validations('Country Repetido')
+		} else {
+			const updatedCountryIds = [...activity.countryIds, selectedCountryId]
+			setActivity({ ...activity, countryIds: updatedCountryIds })
+		}
+	}
+
+	const handleSubmitCountries = () => {
+		if (errors.countryIds === '' && activity.countryIds !== []) {
+			setNext(6)
+		}
 	}
 
 	// Estado global con todos los paises
@@ -97,12 +117,14 @@ export const useActivityForm = () => {
 		handleSubmitDifficulty,
 		handleChangeDuration,
 		handleSubmitDuration,
-		handleChangeSeason,
+		handleSelectSeason,
+		handleSubmitSeason,
 		handleSelectCountry,
+		handleSubmitCountries,
 		submitActivity,
 		errors,
-		setErrors,
 		next,
+		setNext,
 	}
 }
 

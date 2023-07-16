@@ -1,6 +1,6 @@
 import style from './create.module.css'
 import Nav from '../../components/nav/Nav'
-
+import { Link } from 'react-router-dom'
 import { useActivityForm } from './modules/activityFunctions'
 
 const Create = () => {
@@ -8,17 +8,20 @@ const Create = () => {
 	const {
 		activity,
 		countries,
-		errors,
-		next,
 		handleChangeName,
 		handleSubmitName,
 		handleChangeDifficulty,
 		handleSubmitDifficulty,
 		handleChangeDuration,
 		handleSubmitDuration,
-		handleChangeSeason,
+		handleSelectSeason,
+		handleSubmitSeason,
 		handleSelectCountry,
+		handleSubmitCountries,
 		submitActivity,
+		errors,
+		next,
+		setNext,
 	} = useActivityForm()
 
 	const { difficulty, duration, name } = activity
@@ -29,8 +32,17 @@ const Create = () => {
 
 			<div className={style.form}>
 				<form>
+					{next === 0 && (
+						<div className={style.titleDiv}>
+							<h2>Create your activity!</h2>
+							<button type='button' onClick={() => setNext(1)}>
+								Start
+							</button>
+						</div>
+					)}
 					{next === 1 && (
-						<div className={style.inputName}>
+						<div className={style.nameDiv}>
+							<h3>Ingrese un nombre para la Actividad</h3>
 							<input
 								type='text'
 								placeholder='Name'
@@ -49,6 +61,7 @@ const Create = () => {
 					{/* Input de rango para la dificultad */}
 					{next === 2 && (
 						<div className={style.inputDificulty}>
+							<h3>Ingrese una dificultad para la Actividad</h3>
 							<input
 								type='range'
 								min={1}
@@ -83,45 +96,75 @@ const Create = () => {
 							<button type='button' onClick={() => handleSubmitDuration()}>
 								Send
 							</button>
+							{errors.duration ? (
+								<p className={style.error}>{errors.duration}</p>
+							) : null}
 						</div>
 					)}
 
 					{/* Select para la temporada */}
-					<select
-						name='SeasonSelect'
-						defaultValue='default'
-						onChange={handleChangeSeason}
-					>
-						<option className={style.defaultValue} value='default' disabled>
-							Select Season
-						</option>
-						<option value='Spring'>Spring</option>
-						<option value='Summer'>Summer</option>
-						<option value='Autumn'>Autumn</option>
-						<option value='Winter'>Winter</option>
-					</select>
-
+					{next === 4 && (
+						<div>
+							<select
+								name='SeasonSelect'
+								defaultValue='default'
+								onChange={handleSelectSeason}
+							>
+								<option className={style.defaultValue} value='default' disabled>
+									Select Season
+								</option>
+								<option value='Spring'>Spring</option>
+								<option value='Summer'>Summer</option>
+								<option value='Autumn'>Autumn</option>
+								<option value='Winter'>Winter</option>
+							</select>
+							<button type='button' onClick={() => handleSubmitSeason()}>
+								Send
+							</button>
+							{errors.season && <p className={style.error}>{errors.season}</p>}
+						</div>
+					)}
 					{/* Select para los países asociados */}
-					<select
-						onChange={handleSelectCountry}
-						name='paises'
-						id=''
-						defaultValue='default'
-					>
-						<option className={style.defaultValue} value='default' disabled>
-							Paises Asociados
-						</option>
-						{countries.map(country => (
-							<option key={country.id} value={country.id}>
-								{country.commonName}
-							</option>
-						))}
-					</select>
-
+					{next === 5 && (
+						<div>
+							<select
+								onChange={handleSelectCountry}
+								name='paises'
+								id=''
+								defaultValue='default'
+							>
+								<option className={style.defaultValue} value='default' disabled>
+									Paises Asociados
+								</option>
+								{countries.map(country => (
+									<option key={country.id} value={country.id}>
+										{country.commonName}
+									</option>
+								))}
+							</select>
+							<button type='button' onClick={() => handleSubmitCountries()}>
+								Send
+							</button>
+							{errors.countryIds && (
+								<p className={style.error}>{errors.countryIds}</p>
+							)}
+						</div>
+					)}
 					{/* Botón para crear la actividad */}
-					<button onClick={submitActivity} type='submit'>
-						Create
-					</button>
+					{next === 6 && (
+						<button onClick={submitActivity} type='submit'>
+							Crear
+						</button>
+					)}
+					{/* Botón para volver al inicio o crear otra actividad */}
+					{next === 7 && (
+						<div>
+							<Link to='/home'>
+								<button>Volver al inicio</button>
+							</Link>
+							<button onClick={() => setNext(0)}>Crear otra actividad</button>
+						</div>
+					)}
 				</form>
 			</div>
 		</div>

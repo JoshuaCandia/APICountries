@@ -23,8 +23,8 @@ const SelectActivity = ({ setCurrentPage, setInputPage }) => {
 				<option className={style.defaultOption} value='default' disabled>
 					Actividad
 				</option>
-				<option value='All'>Con Actividades</option>
-				<option value='Created'>Sin Actividades</option>
+				<option value='created'>Con Actividades</option>
+				<option value='nonCreated'>Sin Actividades</option>
 			</select>
 		</div>
 	)

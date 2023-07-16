@@ -1,3 +1,25 @@
+.create {
+	height: 100%;
+	display: grid;
+	grid-template-rows: 10% 90%;
+}
+.form {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+.titleDiv {
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+}
+.nameDiv {
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+}
 .defaultValue {
 	display: none;
 }

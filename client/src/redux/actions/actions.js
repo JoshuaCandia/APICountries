@@ -35,7 +35,6 @@ const filterCountriesByContinent = payload => {
 }
 
 const filterActivities = payload => {
-	console.log(payload)
 	return dispatch => {
 		dispatch({
 			type: FILTER_ACTIVITIES,

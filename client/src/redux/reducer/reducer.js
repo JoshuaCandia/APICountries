@@ -17,6 +17,8 @@ import {
 const initialState = {
 	countries: [],
 	countriesCopy: [],
+	countriesPerContinent: [],
+	countriesSet: false,
 	activities: [],
 	order: '',
 }
@@ -29,6 +31,8 @@ const reducer = (state = initialState, { type, payload }) => {
 				countries: payload,
 				countriesCopy: payload,
 			}
+
+		// Filtrado
 		case FILTER_COUNTRIES_BY_CONTINENT:
 			const statusFiltered =
 				payload === 'Todos'
@@ -38,7 +42,47 @@ const reducer = (state = initialState, { type, payload }) => {
 			return {
 				...state,
 				countries: statusFiltered,
+				countriesPerContinent: statusFiltered,
+				countriesSet: true,
 			}
+
+		case FILTER_COUNTRIES_BY_SEARCH:
+			state.countriesCopy = payload
+			return {
+				...state,
+
+				countries: state.countriesCopy,
+			}
+
+		case FILTER_ACTIVITIES:
+			let activitiesFiltered = []
+			if (state.countriesSet === true) {
+				if (payload === 'created') {
+					activitiesFiltered = state.countriesPerContinent.filter(
+						country => country.Activities.length !== 0
+					)
+				} else if (payload === 'nonCreated') {
+					activitiesFiltered = state.countriesPerContinent.filter(
+						country => country.Activities.length === 0
+					)
+				}
+			} else {
+				if (payload === 'created') {
+					activitiesFiltered = state.countriesCopy.filter(
+						country => country.Activities.length !== 0
+					)
+				} else if (payload === 'nonCreated') {
+					activitiesFiltered = state.countriesCopy.filter(
+						country => country.Activities.length === 0
+					)
+				}
+			}
+
+			return {
+				...state,
+				countries: activitiesFiltered,
+			}
+		// Ordenamiento
 
 		case FILTER_COUNTRIES_BY_NAME:
 			const sortedArray =
@@ -74,24 +118,6 @@ const reducer = (state = initialState, { type, payload }) => {
 			return {
 				...state,
 				countries: sortedArrayPopulation,
-			}
-
-		case FILTER_COUNTRIES_BY_SEARCH:
-			state.countriesCopy = payload
-			return {
-				...state,
-
-				countries: state.countriesCopy,
-			}
-		case FILTER_ACTIVITIES:
-			const activitiesFiltered =
-				payload === 'Created'
-					? state.countriesCopy
-					: state.countriesCopy.filter(country => country.Activities.length > 0)
-
-			return {
-				...state,
-				countries: activitiesFiltered,
 			}
 
 		case SET_ORDER:
