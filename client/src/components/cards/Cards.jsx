@@ -19,7 +19,7 @@ const Cards = () => {
 	const [currentPage, setCurrentPage] = useState(1) // State de la pagina actual
 	const [inputPage, setInputPage] = useState('') // State del input de pagina
 
-	const countriesPerPage = 12
+	const countriesPerPage = 10
 	const firstCountryIndex = (currentPage - 1) * countriesPerPage
 	const sliceIndex = firstCountryIndex + countriesPerPage
 	const currentCountries = countries.slice(firstCountryIndex, sliceIndex)

@@ -60,9 +60,11 @@ export const useValidations = next => {
 				break
 			case 5:
 				if (value.length === 0) {
-					newErrors.countryIds = 'Please select at least one country'
+					newErrors.countryIds = 'Porfavor elija al menos un pais'
 				} else if (value === 'Country Repetid') {
 					newErrors.countryIds = 'Porfavor elija un país diferente'
+				} else if (value === 'Mas de 4 paises') {
+					newErrors.countryIds = 'No puede agregar mas de 4 paises'
 				} else {
 					newErrors.countryIds = ''
 				}

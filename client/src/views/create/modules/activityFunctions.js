@@ -120,10 +120,13 @@ export const useActivityForm = () => {
 	// Countries Handlers
 	const handleSelectCountry = event => {
 		validations(event.target.value)
+
 		const selectedCountryId = event.target.value
 
 		if (activity.countryIds.includes(selectedCountryId)) {
 			validations('Country Repetido')
+		} else if (activity.countryIds.length > 3) {
+			validations('Mas de 4 paises')
 		} else {
 			const updatedCountryIds = [...activity.countryIds, selectedCountryId]
 			setActivity({ ...activity, countryIds: updatedCountryIds })
@@ -159,6 +162,19 @@ export const useActivityForm = () => {
 		countriesNames.push(countryName)
 	})
 
+	const createAnother = () => {
+		setNext(0)
+		setActivity({
+			name: '',
+			difficulty: 0,
+			duration: 0,
+			season: [],
+			countryIds: [],
+		})
+		setSelectedCountryIds([])
+		setDisabledSeasons([])
+	}
+
 	return {
 		activity,
 		countries,
@@ -185,5 +201,6 @@ export const useActivityForm = () => {
 		errors,
 		next,
 		setNext,
+		createAnother,
 	}
 }
