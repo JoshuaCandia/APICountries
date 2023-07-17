@@ -53,11 +53,21 @@ const Create = () => {
 
 			<form className={style.form}>
 				{next === 0 && (
-					<div className={style.titleDiv}>
-						<h2>¡Crea tu Actividad!</h2>
-						<button type='button' onClick={() => setNext(1)}>
-							Crear
-						</button>
+					<div
+						style={{
+							display: 'flex',
+							justifyContent: 'center',
+							alignItems: 'center',
+							width: '100vw',
+							height: '90vh',
+						}}
+					>
+						<div className={style.titleDiv}>
+							<h2>¡Crea tu Actividad!</h2>
+							<button type='button' onClick={() => setNext(1)}>
+								Crear
+							</button>
+						</div>
 					</div>
 				)}
 				{next === 1 && (
@@ -72,7 +82,7 @@ const Create = () => {
 						/>
 
 						<button type='button' onClick={() => handleSubmitName()}>
-							Send
+							Aplicar
 						</button>
 					</div>
 				)}
@@ -91,7 +101,7 @@ const Create = () => {
 							name='difficulty'
 						/>
 						<button type='button' onClick={() => handleSubmitDifficulty()}>
-							Send
+							Aplicar
 						</button>
 					</div>
 				)}
@@ -109,7 +119,7 @@ const Create = () => {
 							onChange={handleChangeDuration}
 						/>
 						<button type='button' onClick={() => handleSubmitDuration()}>
-							Send
+							Aplicar
 						</button>
 					</div>
 				)}
@@ -160,7 +170,7 @@ const Create = () => {
 							type='button'
 							onClick={handleSubmitSeason}
 						>
-							Send
+							Aplicar
 						</button>
 					</div>
 				)}
@@ -219,9 +229,9 @@ const Create = () => {
 				)}
 				{/* Botón para crear la actividad */}
 				{next === 6 && (
-					<div className={style.createOrRemake}>
+					<div className={style.createFinal}>
 						<button onClick={submitActivity} type='submit'>
-							Crear
+							Terminar
 						</button>
 					</div>
 				)}
