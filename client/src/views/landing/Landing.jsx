@@ -14,7 +14,7 @@ const Landing = () => {
 			'¡Hola señor Marciano!',
 			'Soy un Developer de la tierra C-137',
 			'Dejame mostrarte algunos paises =)',
-			'Hace click en mi nave para acompañarme!',
+			'Hace click en mi nave para acompañarme! ANASHEI',
 		],
 		loop: false,
 		typeSpeed: 60,

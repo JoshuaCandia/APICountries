@@ -1,5 +1,5 @@
 import style from './pagination.module.css'
-// import Swal from 'sweetalert2'
+import Swal from 'sweetalert2'
 
 const Pagination = ({
 	currentPage,
@@ -28,12 +28,11 @@ const Pagination = ({
 			setCurrentPage(parsedInput)
 			setInputPage('')
 		} else {
-			alert('Debe ingresar un número entre 1 y ' + pageNum.length)
-			/* Swal.fire(
+			Swal.fire(
 				'Error',
 				'Debe ingresar un número entre 1 y ' + pageNum.length,
 				'error'
-			) */
+			)
 			setInputPage(currentPage)
 		}
 	}

@@ -12,7 +12,7 @@ import {
 	FILTER_COUNTRIES_BY_NAME,
 	FILTER_COUNTRIES_BY_POPULATION,
 } from '../action-types/action-types'
-
+import Swal from 'sweetalert2'
 import axios from 'axios'
 
 const getCountries = () => {
@@ -89,7 +89,7 @@ const createActivities = activity => {
 				'http://localhost:3001/activities',
 				activity
 			)
-			alert('Actividad Creada')
+			Swal.fire('Actividad Creada')
 
 			dispatch({
 				type: CREATE_ACTIVITIES,

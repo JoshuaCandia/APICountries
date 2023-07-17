@@ -70,6 +70,7 @@ const Cards = () => {
 						population={country.population}
 						commonName={country.commonName}
 						continent={country.continent}
+						escudo={country.escudo}
 					/>
 				))}
 			</div>
