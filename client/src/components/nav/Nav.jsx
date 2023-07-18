@@ -1,10 +1,9 @@
 import style from './nav.module.css'
 
 // Import components
-import ButtonCreate from '../../components/buttons/buttonCreate/ButtonCreate'
-import ButtonLogOut from '../buttons/buttonLogOut/ButtonLogOut'
-import Title from '../Title/Title'
 
+import ButtonLogOut from '../buttons/buttonLogOut/ButtonLogOut'
+import logo from '../../assets/logo.png'
 // Import hooks
 import { Link } from 'react-router-dom'
 
@@ -12,12 +11,10 @@ const Nav = () => {
 	return (
 		<div className={style.nav}>
 			<Link to='/home'>
-				<Title />
+				<img className={style.logo} src={logo} alt='' />
 			</Link>
-			<div className={style.buttons}>
-				<ButtonCreate />
-				<ButtonLogOut />
-			</div>
+			<h1>¡Explora el mundo en cada carta!</h1>
+			<ButtonLogOut />
 		</div>
 	)
 }

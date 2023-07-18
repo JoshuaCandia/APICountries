@@ -30,6 +30,10 @@ const Pagination = ({
 			alert('Debe ingresar un número entre 1 y ' + pageNum.length)
 			setInputPage(currentPage)
 		}
+		scrollToTop()
+	}
+	const scrollToTop = () => {
+		window.scrollTo({ top: 100, behavior: 'smooth' })
 	}
 
 	return (
@@ -42,7 +46,7 @@ const Pagination = ({
 
 			<div className={style.numbers}>
 				{currentPage > pageNum.length && paginate(1)}
-				<p>
+				<div className={style.changePageDiv}>
 					<input
 						className={style.inputPage}
 						onChange={handleInputChange}
@@ -53,8 +57,8 @@ const Pagination = ({
 					<button className={style.buttonPage} onClick={goToPage}>
 						➡
 					</button>
-					{` de ${pageNum.length}`}
-				</p>
+				</div>
+				<p>{` de ${pageNum.length}`}</p>
 			</div>
 
 			<div className={style.Next}>

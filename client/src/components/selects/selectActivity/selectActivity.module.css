@@ -21,7 +21,8 @@
 
 .selectActivity select:hover {
 	outline: none;
-	background-color: #3469c7;
+	background-color: white;
+	color: black;
 }
 
 .selectActivity select:focus {

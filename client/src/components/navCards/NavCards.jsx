@@ -5,6 +5,7 @@ import SelectActivity from '../selects/selectActivity/SelectActivity'
 import SelectNamesAndPopulation from '../selects/selectNamesAndPopulation/SelectNamesAndPopulation'
 import SelectContinent from '../selects/selectContinent/SelectContinent'
 
+import ButtonCreate from '../../components/buttons/buttonCreate/ButtonCreate'
 import ButtonRestore from '../buttons/buttonRestore/ButtonRestore'
 import SearchBar from '../searchBar/SearchBar'
 
@@ -22,7 +23,6 @@ const NavCards = ({ setCurrentPage, setInputPage }) => {
 				{restore && (
 					<div className={style.selectors}>
 						<div className={style.filtrarPaises}>
-							<p>Filtrar: </p>
 							<SelectContinent
 								setInputPage={setInputPage}
 								setCurrentPage={setCurrentPage}
@@ -34,7 +34,6 @@ const NavCards = ({ setCurrentPage, setInputPage }) => {
 						</div>
 
 						<div className={style.ordenarPaises}>
-							<p>Ordenar :</p>
 							<SelectNamesAndPopulation />
 						</div>
 					</div>
@@ -48,6 +47,7 @@ const NavCards = ({ setCurrentPage, setInputPage }) => {
 					/>
 				</div>
 			</div>
+			<ButtonCreate />
 		</div>
 	)
 }

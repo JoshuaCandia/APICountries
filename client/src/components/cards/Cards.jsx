@@ -16,20 +16,18 @@ const Cards = () => {
 
 	const countries = useSelector(state => state.countries)
 
-	const [currentPage, setCurrentPage] = useState(1) // State de la pagina actual
-	const [inputPage, setInputPage] = useState('') // State del input de pagina
+	const [currentPage, setCurrentPage] = useState(1)
+	const [inputPage, setInputPage] = useState('')
 
 	const countriesPerPage = 10
 	const firstCountryIndex = (currentPage - 1) * countriesPerPage
 	const sliceIndex = firstCountryIndex + countriesPerPage
 	const currentCountries = countries.slice(firstCountryIndex, sliceIndex)
 
-	// Funcion de Paginado
 	const paginate = pageNumber => {
 		setCurrentPage(pageNumber)
 	}
 
-	// handlers de Paginado
 	const handlerPrev = () => {
 		setCurrentPage(currentPage - 1)
 		setInputPage(currentPage - 1)
@@ -50,17 +48,6 @@ const Cards = () => {
 				<NavCards setCurrentPage={setCurrentPage} setInputPage={setInputPage} />
 			</div>
 
-			<Pagination
-				currentPage={currentPage}
-				countriesPerPage={countriesPerPage}
-				paginate={paginate}
-				handlerPrev={handlerPrev}
-				handlerNext={handlerNext}
-				countries={countries?.length}
-				setCurrentPage={setCurrentPage}
-				inputPage={inputPage}
-				setInputPage={setInputPage}
-			/>
 			<div className={style.cards}>
 				{currentCountries?.map(country => (
 					<Card
@@ -74,6 +61,17 @@ const Cards = () => {
 					/>
 				))}
 			</div>
+			<Pagination
+				currentPage={currentPage}
+				countriesPerPage={countriesPerPage}
+				paginate={paginate}
+				handlerPrev={handlerPrev}
+				handlerNext={handlerNext}
+				countries={countries?.length}
+				setCurrentPage={setCurrentPage}
+				inputPage={inputPage}
+				setInputPage={setInputPage}
+			/>
 		</div>
 	)
 }

@@ -5,7 +5,7 @@ const ButtonCreate = () => {
 	return (
 		<div className={style.create}>
 			<Link to='/create'>
-				<button>Create</button>
+				<button>Crear</button>
 			</Link>
 		</div>
 	)
