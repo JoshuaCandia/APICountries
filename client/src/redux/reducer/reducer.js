@@ -104,7 +104,7 @@ const reducer = (state = initialState, { type, payload }) => {
 
 		case FILTER_COUNTRIES_BY_POPULATION:
 			const sortedArrayPopulation =
-				payload === 'asc'
+				payload === 'population_asc'
 					? state.countries.sort(function (a, b) {
 							if (a.population > b.population) return -1
 							if (b.population > a.population) return 1

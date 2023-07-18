@@ -8,7 +8,7 @@ const Home = () => {
 		<div className={style.home}>
 			<Nav />
 
-			<Cards />
+			<Cards style={{ position: 'absolute', top: 0, zIndex: 2 }} />
 		</div>
 	)
 }

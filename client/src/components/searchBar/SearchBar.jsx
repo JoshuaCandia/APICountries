@@ -22,13 +22,6 @@ const SearchBar = () => {
 	}
 	return (
 		<div className={style.searchBar}>
-			<button
-				className={style.buttonSearch}
-				onClick={handleSearch}
-				type='button'
-			>
-				<img className={style.lupa} src={lupa} alt='' />
-			</button>
 			<input
 				className={style.input}
 				type='search'
@@ -38,6 +31,13 @@ const SearchBar = () => {
 				onChange={handleChange}
 				placeholder='Busca paises acá...'
 			/>
+			<button
+				className={style.buttonSearch}
+				onClick={handleSearch}
+				type='button'
+			>
+				<img className={style.lupa} src={lupa} alt='' />
+			</button>
 		</div>
 	)
 }

@@ -2,9 +2,8 @@ import style from './navCards.module.css'
 import { useEffect, useState } from 'react'
 // import Selects
 import SelectActivity from '../selects/selectActivity/SelectActivity'
-import SelectNames from '../selects/selectNames/SelectNames'
+import SelectNamesAndPopulation from '../selects/selectNamesAndPopulation/SelectNamesAndPopulation'
 import SelectContinent from '../selects/selectContinent/SelectContinent'
-import SelectPopulation from '../selects/selectPopulation/SelectPopulation'
 
 import ButtonRestore from '../buttons/buttonRestore/ButtonRestore'
 import SearchBar from '../searchBar/SearchBar'
@@ -36,13 +35,11 @@ const NavCards = ({ setCurrentPage, setInputPage }) => {
 
 						<div className={style.ordenarPaises}>
 							<p>Ordenar :</p>
-							<SelectNames />
-							<SelectPopulation />
+							<SelectNamesAndPopulation />
 						</div>
 					</div>
 				)}
 				<div className={style.restaurarDiv}>
-					<p>Restaurar</p>
 					<ButtonRestore
 						restore={restore}
 						setRestore={setRestore}

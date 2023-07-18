@@ -12,7 +12,6 @@ const Detail = () => {
 
 	// State Local par arecibir la informacion del country
 	const [data, setData] = useState({})
-
 	const [vecinos, setVecinos] = useState([])
 
 	useEffect(() => {
@@ -46,7 +45,14 @@ const Detail = () => {
 					<img className={style.flag} src={flag} alt={`${commonName} flag`} />
 				</div>
 				<div className={style.dataDiv}>
-					<h2 className={style.countryName}>{commonName} </h2>
+					<h2 className={style.countryName}>
+						<Link
+							to={`https://www.google.com/search?q=${commonName}`}
+							target='_blank'
+						>
+							{commonName}
+						</Link>
+					</h2>
 
 					<div className={style.infoFlex}>
 						<div className={style.info1}>
@@ -90,9 +96,9 @@ const Detail = () => {
 				<div className={style.paisesVecinos}>
 					<p className={style.pVecinos}>Paises Vecinos:</p>
 					{vecinos.map(country => (
-						<Link key={country.id} to={`/detail/${country.id}`}>
+						<Link key={country.idVecino} to={`/detail/${country.idVecino}`}>
 							<span className={style.vecino} onClick={() => setVecinos([])}>
-								{` ${country.commonName}`}
+								{` ${country.name}`}
 							</span>
 						</Link>
 					))}
