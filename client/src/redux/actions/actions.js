@@ -11,6 +11,8 @@ import {
 	SET_ORDER,
 	FILTER_COUNTRIES_BY_NAME,
 	FILTER_COUNTRIES_BY_POPULATION,
+	// Restaurar
+	RESTORE,
 } from '../action-types/action-types'
 
 import axios from 'axios'
@@ -100,6 +102,14 @@ const createActivities = activity => {
 			console.error('Error creating activities:', error)
 			return { success: false, error: error.message }
 		}
+	}
+}
+
+export const restore = () => {
+	return async dispatch => {
+		dispatch({
+			type: RESTORE,
+		})
 	}
 }
 

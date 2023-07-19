@@ -12,6 +12,8 @@ import {
 	// Ordenar Paises
 	FILTER_COUNTRIES_BY_NAME,
 	FILTER_COUNTRIES_BY_POPULATION,
+	// Restaurar
+	RESTORE,
 } from '../action-types/action-types'
 
 const initialState = {
@@ -47,11 +49,11 @@ const reducer = (state = initialState, { type, payload }) => {
 			}
 
 		case FILTER_COUNTRIES_BY_SEARCH:
-			state.countriesCopy = payload
+			state.countries = payload
 			return {
 				...state,
 
-				countries: state.countriesCopy,
+				countries: state.countries,
 			}
 
 		case FILTER_ACTIVITIES:
@@ -131,6 +133,11 @@ const reducer = (state = initialState, { type, payload }) => {
 			return {
 				...state,
 				activities: [...state.activities, payload],
+			}
+		case RESTORE:
+			return {
+				...state,
+				countries: state.countriesCopy,
 			}
 		default:
 			return state
