@@ -138,6 +138,8 @@ const reducer = (state = initialState, { type, payload }) => {
 			return {
 				...state,
 				countries: state.countriesCopy,
+				countriesPerContinent: state.countriesCopy,
+				countriesSet: false,
 			}
 		default:
 			return state

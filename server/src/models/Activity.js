@@ -10,7 +10,13 @@ module.exports = sequelize => {
     },
     name: {
       type: DataTypes.STRING,
-      allowNull: false
+      allowNull: false,
+      validate: {
+        max: {
+          args: [50],
+          msg: 'El nombre no puede tener más de 50 letras.'
+        }
+      }
     },
     difficulty: {
       type: DataTypes.INTEGER,

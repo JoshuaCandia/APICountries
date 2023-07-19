@@ -14,12 +14,12 @@ export const useValidations = next => {
 
 		switch (next) {
 			case 1: {
-				const regex = /^[a-zA-Z0-9\s]{4,15}$/
+				const regex = /^[a-zA-Z0-9\s]{4,50}$/
 				if (!value) {
 					newErrors.name = 'No puede enviar un nombre vacío'
 				} else if (!regex.test(value)) {
 					newErrors.name =
-						'El nombre solo puede contener letras, números y espacios, y debe tener entre 4 y 15 caracteres'
+						'El nombre solo puede contener letras, números y espacios, y debe tener entre 4 y 50 caracteres'
 				} else {
 					newErrors.name = ''
 				}

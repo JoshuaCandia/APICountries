@@ -12,7 +12,7 @@ import { useDispatch, useSelector } from 'react-redux'
 const Cards = () => {
 	const dispatch = useDispatch()
 
-	// useSelector(state => state.order)
+	useSelector(state => state.order) // Estado global para ordenar las cards
 
 	const countries = useSelector(state => state.countries)
 

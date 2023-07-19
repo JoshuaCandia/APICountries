@@ -87,6 +87,7 @@ const setOrder = order => {
 const createActivities = activity => {
 	return async dispatch => {
 		try {
+			// eslint-disable-next-line no-unused-vars
 			const { data } = await axios.post(
 				'http://localhost:3001/activities',
 				activity
@@ -97,10 +98,9 @@ const createActivities = activity => {
 				type: CREATE_ACTIVITIES,
 				payload: activity,
 			})
-			return { success: true, data }
 		} catch (error) {
 			console.error('Error creating activities:', error)
-			return { success: false, error: error.message }
+			return { error: error.message }
 		}
 	}
 }

@@ -16,7 +16,7 @@ export const useActivityForm = () => {
 
 	const [activity, setActivity] = useState({
 		name: '',
-		difficulty: 0,
+		difficulty: 1,
 		duration: 0,
 		season: [],
 		countryIds: [],
