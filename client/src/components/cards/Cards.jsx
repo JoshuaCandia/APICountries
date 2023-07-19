@@ -12,13 +12,12 @@ import { useDispatch, useSelector } from 'react-redux'
 const Cards = () => {
 	const dispatch = useDispatch()
 
-	useSelector(state => state.order)
+	// useSelector(state => state.order)
 
 	const countries = useSelector(state => state.countries)
 
 	const [currentPage, setCurrentPage] = useState(1)
 	const [inputPage, setInputPage] = useState('')
-
 	const countriesPerPage = 10
 	const firstCountryIndex = (currentPage - 1) * countriesPerPage
 	const sliceIndex = firstCountryIndex + countriesPerPage

@@ -44,8 +44,14 @@ const SelectNamesAndPopulation = () => {
 				<option className={style.defaultOption} value='default' disabled>
 					Ordenar
 				</option>
+				<option disabled value='name'>
+					----Por nombre----
+				</option>
 				<option value='asc'>A-Z</option>
 				<option value='desc'>Z-A</option>
+				<option value='population' disabled>
+					----Por población----
+				</option>
 				<option value='population_asc'>Ascendente (Población)</option>
 				<option value='population_desc'>Descendente (Población)</option>
 			</select>

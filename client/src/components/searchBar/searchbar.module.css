@@ -23,6 +23,11 @@
 	color: #fff;
 }
 
+.input :focus {
+	outline: none;
+	border-bottom: 1px solid white;
+}
+
 .buttonSearch {
 	width: 20%;
 	display: flex;
@@ -49,5 +54,6 @@
 }
 
 .buttonSearch:hover {
-	background-color: #3469c7;
+	border-top: 1px solid white;
+	border-bottom: 1px solid white;
 }

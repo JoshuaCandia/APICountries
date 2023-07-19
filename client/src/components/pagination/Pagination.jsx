@@ -26,11 +26,11 @@ const Pagination = ({
 		if (parsedInput >= 1 && parsedInput <= pageNum.length) {
 			setCurrentPage(parsedInput)
 			setInputPage('')
+			scrollToTop()
 		} else {
 			alert('Debe ingresar un número entre 1 y ' + pageNum.length)
 			setInputPage(currentPage)
 		}
-		scrollToTop()
 	}
 	const scrollToTop = () => {
 		window.scrollTo({ top: 100, behavior: 'smooth' })
@@ -39,13 +39,18 @@ const Pagination = ({
 	return (
 		<div className={style.pag}>
 			<div className={style.prev}>
-				<button onClick={handlerPrev} disabled={currentPage === 1}>
+				<button
+					onClick={handlerPrev}
+					disabled={currentPage === 1}
+					className={currentPage === 1 ? style.disabledButton : ''}
+				>
 					PREV
 				</button>
 			</div>
 
 			<div className={style.numbers}>
 				{currentPage > pageNum.length && paginate(1)}
+
 				<div className={style.changePageDiv}>
 					<input
 						className={style.inputPage}
@@ -62,7 +67,11 @@ const Pagination = ({
 			</div>
 
 			<div className={style.Next}>
-				<button onClick={handlerNext} disabled={currentPage === pageNum.length}>
+				<button
+					onClick={handlerNext}
+					disabled={currentPage === pageNum.length}
+					className={currentPage === pageNum.length ? style.disabledButton : ''}
+				>
 					NEXT
 				</button>
 			</div>

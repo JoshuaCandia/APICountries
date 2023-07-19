@@ -24,10 +24,6 @@
 	color: black;
 }
 
-.selectNames select:focus {
-	outline: none;
-}
-
 .selectNames select option {
 	color: #fff;
 	background-color: hsl(209, 23%, 22%);

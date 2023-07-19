@@ -85,3 +85,7 @@
 	width: 25px;
 	text-align: center;
 }
+.disabledButton {
+	background-color: gray;
+	color: white;
+}
