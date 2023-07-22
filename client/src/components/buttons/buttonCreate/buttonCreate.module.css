@@ -1,3 +1,8 @@
+.create {
+	display: flex;
+	justify-content: center;
+	width: 20%;
+}
 .create button {
 	width: 100px;
 

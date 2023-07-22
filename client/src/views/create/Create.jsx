@@ -5,6 +5,7 @@ import { useActivityForm } from './modules/activityFunctions'
 import { useEffect } from 'react'
 
 import axios from 'axios'
+import ButtonHome from '../../components/buttons/buttonHome/ButtonHome'
 
 const Create = () => {
 	// Obtener las funciones y los estados relacionados con el formulario de actividad
@@ -50,7 +51,9 @@ const Create = () => {
 	return (
 		<div className={style.create}>
 			<Nav />
-
+			<div className={style.divButtonHome}>
+				<ButtonHome />
+			</div>
 			<form className={style.form}>
 				{next === 0 && (
 					<div
@@ -58,8 +61,8 @@ const Create = () => {
 							display: 'flex',
 							justifyContent: 'center',
 							alignItems: 'center',
-							width: '100vw',
-							height: '90vh',
+							width: '98vw',
+							height: '100%',
 						}}
 					>
 						<div className={style.titleDiv}>

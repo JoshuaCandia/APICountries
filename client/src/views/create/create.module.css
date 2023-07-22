@@ -1,12 +1,18 @@
 .create {
 	height: 100%;
 	display: grid;
-	grid-template-rows: 10% 90%;
+	grid-template-rows: 10% 10% 80%;
+}
+.divButtonHome {
+	display: flex;
+	justify-content: start;
+	align-items: flex-end;
+	margin-left: 10%;
 }
 
 .form {
 	width: 100%;
-	height: 90vh;
+	height: 80vh;
 	display: grid;
 	justify-content: center;
 	align-items: center;
