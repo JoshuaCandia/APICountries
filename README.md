@@ -4,7 +4,7 @@
 
 Este proyecto umestra todos los paises del mundo.
 
-Permite buscar paises
+Permite buscar paises por nombre o continente y ordenarlos por poblacion o por nombre
 
 Las tecnologias practicadas son:
 
