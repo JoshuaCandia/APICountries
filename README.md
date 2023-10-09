@@ -43,4 +43,3 @@ El deploy va aca
 
 
 ## Favorites Page
-![image](https://github.com/JoshuaCandia/HarryPotterApi/assets/99448044/6aefe7c2-4c1a-4e14-8477-eca16498e9c9)
